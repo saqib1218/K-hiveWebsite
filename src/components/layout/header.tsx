@@ -47,8 +47,10 @@ const Header = () => {
 
    const drawer = (
       <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', backgroundColor: 'transparent' }}>
+
          <KHiveLogo1 />
          <Divider />
+
          <List>
             {navItems.map((item) => (
                <React.Fragment key={item.label}>
