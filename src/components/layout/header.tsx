@@ -15,19 +15,25 @@ import Button from '@mui/material/Button';
 import KHiveLogo from '../../Assets/mainLogo'
 import KHiveLogo1 from '../../Assets/mainLogo2'
 // @ts-ignore 
-import { usePath, A } from 'hookrouter';
+import { usePath, A, navigate } from 'hookrouter';
+import { makeStyles } from '@mui/styles';
 
 const drawerWidth = 240;
-const navItems = [
-   { label: 'Home', path: '/' },
-   { label: 'About us', path: '/about' },
-   { label: 'Services', path: '/services' },
-   { label: 'Careers', path: '/careers' },
-];
+const navItems = [{ label: 'Home', path: '/' }, { label: 'About us', path: '/about' }, { label: 'Services', path: '/services' }, { label: 'Careers', path: '/careers' },];
+
+
+const useStyles = makeStyles({
+   active: {
+      textDecoration: 'underline',
+      color: '#C22522'
+   }
+});
 const Header = () => {
    const [mobileOpen, setMobileOpen] = React.useState(false);
    const [selectedNav, setSelectedNav] = React.useState('Home');
    const currentPath = usePath();
+
+   const classes = useStyles();
 
    React.useEffect(() => {
       // Update the selected nav item based on the current path
@@ -40,39 +46,41 @@ const Header = () => {
    const handleDrawerToggle = () => {
       setMobileOpen((prevState) => !prevState);
    };
-   const handleNavClick = (nav: any) => {
-      setSelectedNav(nav);
-      setMobileOpen(false); // Close the mobile drawer after clicking a nav item
+   const handleNavClick = (label: any, path: any) => {
+      setSelectedNav(label);
+      setMobileOpen(false);
+      navigate(path)
+      // Close the mobile drawer after clicking a nav item
    };
 
    const drawer = (
       <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', backgroundColor: 'transparent' }}>
 
-         <KHiveLogo1 />
-         <Divider />
+         <ListItem>
+            <KHiveLogo1 />
+         </ListItem>
 
-         <List>
+         <List style={{ padding: 0 }}>
             {navItems.map((item) => (
                <React.Fragment key={item.label}>
+                  <Divider />
                   <ListItem disablePadding>
                      <ListItemButton
-                        sx={{ textAlign: 'center' }}
+                        sx={{ textAlign: 'center', }}
                         className={selectedNav === item.label ? 'active' : ''}
-                        onClick={() => handleNavClick(item.label)}
+                        onClick={() => handleNavClick(item.label, item.path)}
                      >
                         <ListItemText primary={item.label} />
                      </ListItemButton>
                   </ListItem>
-                  <Divider />
                </React.Fragment>
             ))}
-            <ListItem>
-               <A href="/quote">
-                  <Button variant="contained" color="error" sx={{ borderRadius: '8px', width: '100%' }}>
-                     Request&nbsp;A&nbsp;Quote
-                  </Button>
-               </A>
-            </ListItem>
+            <Divider />
+            <A href="/quote" style={{ textDecoration: 'none' }}>
+               <Button variant="contained" sx={{ borderRadius: '6px', width: '90%', textTransform: 'none', backgroundColor: "#C22522", alignSelf: 'stretch', margin: '16px' }}>
+                  Request&nbsp;a&nbsp;Quote
+               </Button>
+            </A>
             <Divider />
          </List>
       </Box>
@@ -92,23 +100,20 @@ const Header = () => {
                         key={item.label}
                         href={item.path}
                         style={{ textDecoration: 'none', color: '#fff' }}
-                        className={currentPath === item.path ? 'active' : ''}
+                        className={currentPath === item.path ? classes.active : ''}
                         onClick={() => setSelectedNav(item.label)}
                      >
-                        <Button
-                           sx={{
-                              color: '#fff',
-                           }}
-                        >
-                           {item.label}
-                        </Button>
+                        <Button sx={{ color: '#fff', textTransform: 'none' }} > {item.label}</Button>
                      </A>
                   ))}
                </Box>
 
-               <Button variant="outlined"
-                  sx={{ borderColor: '#C22522', color: 'white', borderRadius: '10px', mr: 2, display: { xs: 'none', sm: 'block' } }}
-               >Request&nbsp;A&nbsp;Quote</Button>
+               <A href="/quote" style={{ textDecoration: 'none' }}>
+                  <Button variant="outlined"
+                     sx={{ borderColor: '#C22522', color: 'white', textTransform: 'none', borderRadius: '6px', mr: 2, display: { xs: 'none', sm: 'block' } }}
+                  >Request&nbsp;A&nbsp;Quote
+                  </Button>
+               </A >
 
                <IconButton
                   color="inherit"
@@ -123,9 +128,8 @@ const Header = () => {
             </Toolbar>
          </AppBar>
 
-         <Box component="nav">
+         <Box component="nav" >
             <Drawer
-               // container={container}
                variant="temporary"
                open={mobileOpen}
                onClose={handleDrawerToggle}
