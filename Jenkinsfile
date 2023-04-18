@@ -20,7 +20,7 @@ pipeline {
                gitlabCommitStatus(name: 'deploy') {
                    sshagent(credentials : ['KRYPTOHIVE']) {
                         sh 'ssh -o StrictHostKeyChecking=no ucurs@ucurs.com -p 6969 uptime'
-                        sh "rsync -rav -e 'ssh -p 6969' --delete-before build/ ucurs@ucurs.com:/home/ucurs/prod/projects/krypto/krypto_fe/"
+                        sh "rsync -rav -e 'ssh -p 6969' --delete-before build/ ucurs@ucurs.com:/home/ucurs/prod/projects/krypto_fe/"
 
                     }
                }
