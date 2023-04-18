@@ -15,7 +15,7 @@ import Button from '@mui/material/Button';
 import KHiveLogo from '../../Assets/mainLogo'
 import KHiveLogo1 from '../../Assets/mainLogo2'
 // @ts-ignore 
-import { usePath, A, navigate } from 'hookrouter';
+import { usePath, A, navigate, } from 'hookrouter';
 import { makeStyles } from '@mui/styles';
 
 const drawerWidth = 240;
@@ -32,6 +32,10 @@ const Header = () => {
    const [mobileOpen, setMobileOpen] = React.useState(false);
    const [selectedNav, setSelectedNav] = React.useState('Home');
    const currentPath = usePath();
+
+  const handleButtonClick = () => {
+    navigate('/contact-us');
+  };
 
    const classes = useStyles();
 
@@ -56,7 +60,7 @@ const Header = () => {
    const drawer = (
       <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', backgroundColor: 'transparent' }}>
 
-         <ListItem>
+         <ListItem onClick={() => handleNavClick('Home', '/')}>
             <KHiveLogo1 />
          </ListItem>
 
@@ -76,8 +80,14 @@ const Header = () => {
                </React.Fragment>
             ))}
             <Divider />
-            <A href="/quote" style={{ textDecoration: 'none' }}>
-               <Button variant="contained" sx={{ borderRadius: '6px', width: '90%', textTransform: 'none', backgroundColor: "#C22522", alignSelf: 'stretch', margin: '16px' }}>
+            <A href="/contact-us" style={{ textDecoration: 'none' }}>
+               <Button variant="contained" sx={{
+                  borderRadius: '6px', width: '90%', textTransform: 'none', backgroundColor: "#C22522", alignSelf: 'stretch', margin: '16px',
+                  '&:hover': {
+                     backgroundColor: '#C22522',
+                     borderColor: '#C22522'
+                  }
+               }}>
                   Request&nbsp;a&nbsp;Quote
                </Button>
             </A>
@@ -92,9 +102,11 @@ const Header = () => {
          <AppBar component="nav">
             <Toolbar style={{ justifyContent: 'space-between', backgroundColor: '#000000' }}>
 
-               <KHiveLogo />
+               <A href="/" style={{ textDecoration: 'none' }}>
+                  <KHiveLogo />
+               </A >
 
-               <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+               <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                   {navItems.map((item) => (
                      <A
                         key={item.label}
@@ -103,24 +115,43 @@ const Header = () => {
                         className={currentPath === item.path ? classes.active : ''}
                         onClick={() => setSelectedNav(item.label)}
                      >
-                        <Button sx={{ color: '#fff', textTransform: 'none' }} > {item.label}</Button>
+                        <Button sx={{ color: '#fff', textTransform: 'none' }} style={{
+                           backgroundColor: selectedNav === item.label ? '#C22522' : 'transparent',
+                        }} > {item.label}</Button>
                      </A>
                   ))}
+
                </Box>
 
-               <A href="/quote" style={{ textDecoration: 'none' }}>
-                  <Button variant="outlined"
-                     sx={{ borderColor: '#C22522', color: 'white', textTransform: 'none', borderRadius: '6px', mr: 2, display: { xs: 'none', sm: 'block' } }}
-                  >Request&nbsp;A&nbsp;Quote
-                  </Button>
-               </A >
+               <Box sx={{ display: { xs: 'none', md: 'block', } }}>
+                  {/* <A href="/contact-us"   > */}
+                     <Button
+                        variant="outlined"
+                        onClick={handleButtonClick}
+                        sx={{
+                           borderColor: '#C22522',
+                           color: 'white',
+                           textTransform: 'none',
+                           borderRadius: '6px',
+                           mr: 2,
+                           textDecoration: 'none !important',
+                           '&:hover': {
+                              backgroundColor: '#C22522',
+                              borderColor: '#C22522',
+                           }
+                        }}
+                     >
+                        Request&nbsp;A&nbsp;Quote
+                     </Button>
+                  {/* </A> */}
+               </Box>
 
                <IconButton
                   color="inherit"
                   aria-label="open drawer"
                   edge="start"
                   onClick={handleDrawerToggle}
-                  sx={{ display: { sm: 'none' } }}
+                  sx={{ display: { md: 'none' } }}
                >
                   <MenuIcon />
                </IconButton>
@@ -137,7 +168,7 @@ const Header = () => {
                   keepMounted: true, // Better open performance on mobile.
                }}
                sx={{
-                  display: { xs: 'block', sm: 'none' },
+                  display: { xs: 'block', md: 'none' },
                   '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, right: 0 },
                }}
             >
