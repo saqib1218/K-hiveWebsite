@@ -5,7 +5,7 @@ pipeline {
            agent {
                 docker {
                     image 'node:latest'
-                }
+                } 
            }
            steps {
                  gitlabCommitStatus(name: 'build') {
