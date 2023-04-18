@@ -1,92 +1,198 @@
-import React from 'react'
-import { Button, Grid, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react'
+import AboutSection from './about-section';
+import TechnologiesSection from './technologies-section';
+import TeamSection from './team-section';
+import ServicesSection from './services-section';
+import { useTheme } from '@mui/material/styles';
+import { Button, Grid, Typography, useMediaQuery, } from '@mui/material';
+// @ts-ignore 
+import Typed from 'react-typed';
 // @ts-ignore 
 import { A } from 'hookrouter';
-import { makeStyles } from '@mui/styles';
 
-const myVideo = require('../../../video/Video.mp4');
-const bgImage = require('../../../Assets/bg.jpg');
+const myVideo = require('../../../Assets/video/Video.mp4');
+const bgImage = require('../../../Assets/images/bg.jpg');
 
-const useStyles = makeStyles({
-   video: {
-      width: '100%', height: '100%', objectFit: 'cover'
-   },
-   about: {
-      display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px'
-   },
-   gridContainer: {
-      justifyContent: 'center', paddingLeft: "190px", paddingRight: '190px'
-   },
-   typoOne: {
-      font: 'Archivo', fontWeight: '600px', fontSize: '36px', color: '#1E293B', lineHeight: '36px', marginBottom: '16px'
-   },
-   typo2: {
-      font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: '#C22522', lineHeight: '16px'
-   },
-   typo3: {
-      font: 'Archivo', fontWeight: '600px', fontSize: '24px', color: '#1E293B', lineHeight: "24px", marginBottom: '16px'
-   },
-   typo4: {
-      font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: '#475569', lineHeight: '24px', marginBottom: '16px'
-   },
-   active: {
-      textDecoration: 'underline',
-      color: '#C22522'
-   },
-});
+const WebTexts = ["Web 3.0 Development", "Web 2.0 Development"];
+const BlockchainTexts = [
+   "Blockchain | Web 3 | Metaverse | XR",
+   "Web apps | Website | Mobile apps"
+];
+
 
 const Home = () => {
-   const classes = useStyles();
+   const [webIndex, setWebIndex] = useState(0);
+   const [blockchainIndex, setBlockchainIndex] = useState(0);
+   const [webText, setWebText] = useState(WebTexts[webIndex]);
+   const [blockchainText, setBlockchainText] = useState(
+      BlockchainTexts[blockchainIndex]
+   );
 
-   return (<>
-      <video
-         src={myVideo}
-         autoPlay
-         loop
-         muted
-         className={classes.video}
-      />
-      <div style={{
-         backgroundImage: `url(${bgImage})`,
-         backgroundSize: 'cover',
-         backgroundRepeat: 'no-repeat',
-         backgroundPosition: 'center',
-         width: '100%',
-         minHeight: '2000px'
-      }}>
-         <div className={classes.about}>
-            <Typography className={classes.typoOne}>About Kryptohive</Typography>
-            <Typography className={classes.typo2}>Excellence, Integrity, People Centric Approach</Typography>
-         </div>
+   useEffect(() => {
+      const webTimer = setInterval(() => {
+         setWebIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
+         const newIndex = webIndex === 0 ? 1 : 0;
+         setTimeout(() => {
+            setWebText(WebTexts[newIndex]);
+         }, 2500); // pause for 2.5 seconds between iterations
+      }, 5000);
 
-         <Grid container spacing={2} className={classes.gridContainer}>
-            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-               <Typography className={classes.typo3}>
-                  Transforming your vision into a viable digital solution.
-               </Typography>
-               <Typography className={classes.typo4}>
-                  Kr yptohive is a renowned company thatspecializes in providing advanced informationtechnology solutions to clients worldwide. Ourteam of experts is dedicated to developinginnovative and creative products and servicesthat cater to the unique needs of our clients.
-               </Typography>
-               <Typography className={classes.typo4}>
-                  Our web 2.0 has wide range of services includes web design anddevelopment, tailor-made applications, ERPs,CRMs, e-commerce solutions, business-to-business applications, business-to-clientapplications, managed hosting, and internetportal management. Our web 3.0 also has wide range of services includes Decentralized aplication development, Blockchain development and integration. Smart contract development,IoT integration, web 3.0 project management and implementation and web 3.0 consulting and strategy development.
-               </Typography>
-               <Typography className={classes.typo4}>
-                  We take pride in t he quality of our work, and oursatisfied clients around t he world are a testament toour commitment to delivering exceptional ser vices.As a technology leader, we are constant ly exploringnew avenues to expand our exper tise and expor tquality software worldwide
-               </Typography>
+      const blockchainTimer = setInterval(() => {
+         setBlockchainIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
+         const newIndex = blockchainIndex === 0 ? 1 : 0;
+         setTimeout(() => {
+            setBlockchainText(BlockchainTexts[newIndex]);
+         }, 2500); // pause for 2.5 seconds between iterations
+      }, 5000);
 
-               <A href="/" style={{ textDecoration: 'none' }}>
-                  <Button variant="contained" sx={{ borderRadius: '6px', textTransform: 'none', backgroundColor: "#C22522", marginTop: '24px' }}>
-                     Get&nbsp;in&nbsp;touch
+      return () => {
+         clearInterval(webTimer);
+         clearInterval(blockchainTimer);
+      };
+   }, [webIndex, blockchainIndex]);
+
+   useEffect(() => {
+      setWebText(WebTexts[webIndex]);
+   }, [webIndex]);
+
+   useEffect(() => {
+      setBlockchainText(BlockchainTexts[blockchainIndex]);
+   }, [blockchainIndex]);
+
+
+   const typo0 = { font: 'Archivo', fontWeight: 'bold', color: '#FFFFFF', lineHeight: '60px', marginBottom: '16px' }
+   const typo1 = { font: 'Archivo', fontWeight: 'bold', fontSize: '36px', color: '#1E293B', lineHeight: '36px', marginBottom: '16px' }
+   const typo2 = { font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: '#C22522', lineHeight: '16px' }
+   const typo3 = { font: 'Archivo', fontWeight: 'bold', fontSize: '36px', color: '#FFFFFF', lineHeight: '36px', marginBottom: '16px' }
+   const typo4 = { font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: '#ffffff', lineHeight: '16px' }
+   const btn = {
+      borderRadius: '6px', textTransform: 'none', backgroundColor: "#C22522", marginTop: '24px', '&:hover': {
+         backgroundColor: '#C22522',
+         borderColor: '#C22522',
+      }
+   }
+   const theme = useTheme();
+   const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // hides the element for screen sizes below 600px
+   const isScreenSmall = useMediaQuery('(max-width:700px)');
+   return (
+      <>
+         <div style={{ position: 'relative', width: '100%', maxHeight: '1080px', marginTop: '55px' }}>
+            <video
+               src={myVideo}
+               autoPlay
+               loop
+               muted
+               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <div style={{ position: 'absolute', width: '100%', height: '99%', top: "0px", left: "0px", backgroundColor: `rgba(0,0,0,.6)`, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+               <Typography style={{ ...typo0, fontSize: isScreenSmall ? "36px" : '60px', }} sx={{ textAlign: 'center' }}>
+                  <Typed
+                     strings={[webText]}
+                     typeSpeed={200}
+                     backSpeed={110}
+                     loop
+                  />
+               </Typography>
+               <Typography style={typo4}>
+                  <Typed
+                     strings={[blockchainText]}
+                     typeSpeed={100}
+                     backSpeed={60}
+                     loop
+                  />
+               </Typography>
+               <A href="/contact-us" style={{ textDecoration: 'none' }}>
+                  <Button variant="contained" size='large' sx={btn}>
+                     Request&nbsp;A&nbsp;Quote
                   </Button>
                </A>
+            </div>
+         </div>
 
-            </Grid>
-            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+         <div style={{
+            backgroundImage: `url(${bgImage})`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            width: '100%',
+            minHeight: '1000px'
 
+         }}>
+            <Grid container style={{ justifyContent: 'center' }}>
+               <Grid item xs={11} sm={11} md={10} lg={10}>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px' }}>
+                     <Typography style={typo1}>
+                        About Kryptohive
+                     </Typography>
+                     <Typography style={typo2}>
+                        Excellence, Integrity, People Centric Approach
+                     </Typography>
+                  </div>
+                  <AboutSection />
+               </Grid>
+
+               <Grid item xs={11} sm={11} md={10} lg={10}>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px' }}>
+                     <Typography style={typo1}>
+                        Core Services
+                     </Typography>
+                     <Typography style={typo2}>
+                        Pioneering The Future Of Technology
+                     </Typography>
+                  </div>
+                  <ServicesSection />
+
+               </Grid>
+
+
+               <div style={{ height: '375px', width: '100%', backgroundColor: ' #1C1C1C', marginTop: "95px", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                  <Typography style={typo3} sx={{ textAlign: 'center' }}>
+                     Ready For Your Digital Success?
+                  </Typography>
+                  <Typography style={typo4}>
+                     Our services solve any business problem.
+                  </Typography>
+                  <A href="/contact-us" style={{ textDecoration: 'none' }}>
+                     <Button variant="contained" size='large' sx={btn}>
+                        Contact&nbsp;Us
+                     </Button>
+                  </A>
+               </div>
+
+               {!isScreenSmall && (
+                  <Grid item xs={10} sm={10} md={10} lg={10}>
+                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px' }}>
+                        <Typography style={typo1} sx={{ textAlign: 'center' }}>
+                           Technologies We Work In
+                        </Typography>
+                        <Typography style={typo2}>
+                           Pioneering The Future Of Technology
+                        </Typography>
+                     </div>
+                     <TechnologiesSection />
+                  </Grid>
+               )}
+
+
+               <Grid item xs={10} sm={10} md={10} lg={10} style={{ marginBottom: '55px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px' }}>
+                     <Typography style={typo1}>
+                        Our Team
+                     </Typography>
+                     <Typography style={typo2}>
+                        Meet Our Talented Team
+                     </Typography>
+                  </div>
+
+
+                  <TeamSection />
+
+               </Grid>
             </Grid>
-         </Grid>
-      </div>
-   </>
+
+         </div>
+
+      </>
    )
 }
 
