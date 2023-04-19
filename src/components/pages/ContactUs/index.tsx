@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import myImage from "./care.jpg";
+import myImageSmall from "./contacts.svg";
 import {
   Button,
   Grid,
@@ -95,11 +95,13 @@ const ContactUs = () => {
           justifyContent: "center",
         }}
       >
-        <img
-          src={myImage}
-          alt="My Image"
-          style={{ maxWidth: "100%", minHeight: hight ? "160px" : "200px" }}
-        />
+              <img
+  srcSet={`${myImageSmall} 400w`}
+  sizes="(max-width: 600px) 400px, 800px"
+  alt="My Image"
+  style={{ maxWidth: "-webkit-fill-available", }}
+/>
+
         <div
           style={{
             position: "absolute",

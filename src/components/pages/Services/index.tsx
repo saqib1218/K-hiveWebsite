@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import Textarea from "@mui/joy/Textarea";
-import myImage from "./services.jpg";
+import myImageSmall from "./services.svg";
 import CsPolygon1 from "./../../../Assets/Qasvg1";
 import CsPolygon2 from "./../../../Assets/Uiux";
 import CsPolygon3 from "./../../../Assets/Blockchain";
@@ -113,10 +113,12 @@ const Services = () => {
         }}
       >
         <img
-          src={myImage}
-          alt="My Image"
-          style={{ maxWidth: "100%", minHeight: fonts ? "160px" : "200px" }}
-        />
+  srcSet={`${myImageSmall} 400w`}
+  sizes="(max-width: 600px) 400px, 800px"
+  alt="My Image"
+  style={{ maxWidth: "-webkit-fill-available", }}
+/>
+
         <div
           style={{
             position: "absolute",
