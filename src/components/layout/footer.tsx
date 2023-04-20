@@ -342,7 +342,7 @@ const Footer = () => {
                 boost your business in no time.
               </Typography>
             </div>
-        
+
             <TextField
               error={showError}
               id="outlined-basic"
@@ -378,39 +378,39 @@ const Footer = () => {
             </Button>
           </Grid>
         </Grid>
-        <div style={{ display: "flex", justifyContent: "center",  }}>
-              {" "}
-                <CustomDialog
-                  title="Thank you for subscribing!"
-                  content=" As a subscriber, you'll get exclusive access to our expert insights, helpful tips, and exciting promotions. We promise to keep your inbox relevant and interesting, so you can focus on what matters most. "
-                  setOpen={setShowDialog}
-                  open={showDialog}
-                />
-            </div>
+        <div style={{ display: "flex", justifyContent: "center", }}>
+          {" "}
+          <CustomDialog
+            title="Thank you for subscribing!"
+            content=" As a subscriber, you'll get exclusive access to our expert insights, helpful tips, and exciting promotions. We promise to keep your inbox relevant and interesting, so you can focus on what matters most. "
+            setOpen={setShowDialog}
+            open={showDialog}
+          />
+        </div>
       </div>
-      <div>
-        <Paper
+      {/* <div> */}
+      <Paper
+        style={{
+          width: "100%",
+          height: "64px",
+          backgroundColor: "#C22522",
+          borderRadius: "0",
+          justifyContent: "center",
+          display: "flex",
+          alignItems: 'center'
+        }}
+      >
+        <Typography
           style={{
-            width: "100%",
-            maxHeight: "85px",
-            backgroundColor: "#C22522",
-            borderRadius: "0",
+            display: "flex",
+            color: "#FFFF",
+            font: "Archivo",
           }}
         >
-          <Typography
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              padding: "30px",
-              color: "#FFFF",
-              font: "Archivo",
-            }}
-          >
-            {" "}
-            © 2023 KRYPTOHIVE - ALL RIGHTS RESERVED KRYPTOHIVE
-          </Typography>
-        </Paper>
-      </div>
+          © 2023 KRYPTOHIVE - ALL RIGHTS RESERVED KRYPTOHIVE
+        </Typography>
+      </Paper>
+      {/* </div> */}
     </>
   );
 };

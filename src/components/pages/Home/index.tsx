@@ -4,14 +4,17 @@ import TechnologiesSection from './technologies-section';
 import TeamSection from './team-section';
 import ServicesSection from './services-section';
 import { useTheme } from '@mui/material/styles';
+import Lottie from 'lottie-react';
+import animationData from '../../../Assets/video/DonsXbpSmn.json';
 import { Button, Grid, Typography, useMediaQuery, } from '@mui/material';
 // @ts-ignore 
 import Typed from 'react-typed';
 // @ts-ignore 
 import { A } from 'hookrouter';
 
-const myVideo = require('../../../Assets/video/Video.mp4');
+const myVideo = require('../../../Assets/video/homeNew.mp4');
 const bgImage = require('../../../Assets/images/bg.jpg');
+
 
 const WebTexts = ["Web 3.0 Development", "Web 2.0 Development"];
 const BlockchainTexts = [
@@ -23,41 +26,7 @@ const BlockchainTexts = [
 const Home = () => {
    const [webIndex, setWebIndex] = useState(0);
    const [blockchainIndex, setBlockchainIndex] = useState(0);
-   const [webText, setWebText] = useState(WebTexts[webIndex]);
-   const [blockchainText, setBlockchainText] = useState(
-      BlockchainTexts[blockchainIndex]
-   );
 
-   useEffect(() => {
-      const webTimer = setInterval(() => {
-         setWebIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
-         const newIndex = webIndex === 0 ? 1 : 0;
-         setTimeout(() => {
-            setWebText(WebTexts[newIndex]);
-         }, 2500); // pause for 2.5 seconds between iterations
-      }, 5000);
-
-      const blockchainTimer = setInterval(() => {
-         setBlockchainIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
-         const newIndex = blockchainIndex === 0 ? 1 : 0;
-         setTimeout(() => {
-            setBlockchainText(BlockchainTexts[newIndex]);
-         }, 2500); // pause for 2.5 seconds between iterations
-      }, 5000);
-
-      return () => {
-         clearInterval(webTimer);
-         clearInterval(blockchainTimer);
-      };
-   }, [webIndex, blockchainIndex]);
-
-   useEffect(() => {
-      setWebText(WebTexts[webIndex]);
-   }, [webIndex]);
-
-   useEffect(() => {
-      setBlockchainText(BlockchainTexts[blockchainIndex]);
-   }, [blockchainIndex]);
 
 
    const typo0 = { font: 'Archivo', fontWeight: 'bold', color: '#FFFFFF', lineHeight: '60px', marginBottom: '16px' }
@@ -71,33 +40,43 @@ const Home = () => {
          borderColor: '#C22522',
       }
    }
+
+
    const theme = useTheme();
    const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // hides the element for screen sizes below 600px
    const isScreenSmall = useMediaQuery('(max-width:700px)');
    return (
       <>
-         <div style={{ position: 'relative', width: '100%', maxHeight: '1080px', marginTop: '55px' }}>
+         <div style={{ position: 'relative', width: '100%', minHeight: '100vh', maxHeight: '1080px', marginTop: '40px', }}>
+
+            {/* <Lottie
+               animationData={animationData}
+               style={{ width: '100%', height: '500%', objectFit: 'cover', position: 'relative' }}
+            /> */}
+
             <video
                src={myVideo}
                autoPlay
                loop
                muted
-               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+               style={{ width: '100%', height: '500%', objectFit: 'cover', position: 'relative' }}
             />
-            <div style={{ position: 'absolute', width: '100%', height: '99%', top: "0px", left: "0px", backgroundColor: `rgba(0,0,0,.6)`, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+
+            <div style={{ position: 'absolute', width: '100%', height: '100%', top: "0px", left: "0px", display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                <Typography style={{ ...typo0, fontSize: isScreenSmall ? "36px" : '60px', }} sx={{ textAlign: 'center' }}>
                   <Typed
-                     strings={[webText]}
-                     typeSpeed={200}
-                     backSpeed={110}
+                     strings={WebTexts}
+                     typeSpeed={60}
+                     backSpeed={60}
                      loop
                   />
                </Typography>
                <Typography style={typo4}>
                   <Typed
-                     strings={[blockchainText]}
-                     typeSpeed={100}
-                     backSpeed={60}
+                     autoInsertCss={true}
+                     strings={BlockchainTexts}
+                     typeSpeed={35}
+                     backSpeed={20}
                      loop
                   />
                </Typography>
@@ -115,7 +94,8 @@ const Home = () => {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             width: '100%',
-            minHeight: '1000px'
+            minHeight: '1000px',
+            position: 'relative',
 
          }}>
             <Grid container style={{ justifyContent: 'center' }}>
