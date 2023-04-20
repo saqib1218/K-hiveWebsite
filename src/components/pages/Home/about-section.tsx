@@ -44,16 +44,16 @@ const AboutSection = () => {
             <Typography style={typo2} sx={{ textAlign: isScreenSmall ? "center" : 'normal' }}>
                We take pride in the quality of our work, and our satisfied clients around the world are a testament to our commitment to delivering exceptional services. As a technology leader, we are constant ly exploring new avenues to expand our expertise and export quality software worldwide
             </Typography>
-            <A href="/" style={{ textDecoration: 'none' }}>
-               <Button variant="contained" size='large' sx={{
+
+               <Button variant="contained" size='large' component={A} href={'/contact-us'} sx={{
                   width: isScreenSmall ? "100%" : "30%", borderRadius: '6px', textTransform: 'none', backgroundColor: "#C22522", marginTop: '24px', '&:hover': {
                      backgroundColor: '#C22522',
                      borderColor: '#C22522',
                   }
-               }} >
+               }}  >
                   Get in touch
                </Button>
-            </A>
+
          </Grid>
 
          <Grid item xs={12} sm={12} md={6} lg={6} xl={6} >

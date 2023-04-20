@@ -123,7 +123,7 @@ const Header = () => {
                      <A
                         key={item.label}
                         href={item.path}
-                        style={{ marginRight: '16px', }}
+                        style={{ marginRight: '16px', textDecoration:"none" }}
                         className={currentPath === item.path ? classes.active : classes.notActive
                         }
                         onClick={() => setSelectedNav(item.label)}
