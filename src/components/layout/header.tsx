@@ -24,23 +24,35 @@ const navItems = [{ label: 'Home', path: '/' }, { label: 'About us', path: '/abo
 
 const useStyles = makeStyles({
    active: {
-      textDecoration: 'underline',
-      color: '#C22522'
-   }
+      textDecoration: 'underline', color: '#C22522', marginRight: '16px'
+   },
+   notActive: {
+      textDecoration: 'none', color: '#fff', marginRight: '16px'
+   },
 });
 const Header = () => {
    const [mobileOpen, setMobileOpen] = React.useState(false);
-   const [selectedNav, setSelectedNav] = React.useState('Home');
+   const [selectedNav, setSelectedNav] = React.useState('/');
    const currentPath = usePath();
 
-  const handleButtonClick = () => {
-    navigate('/contact-us');
-  };
+   React.useEffect(() => {
+      if (currentPath === '/') {
+         setSelectedNav('Home');
+      } else if (currentPath === '/contact-us') {
+         setSelectedNav('Contact Us');
+      } else {
+         setSelectedNav('Services');
+      }
+   }, [currentPath]);
+
+   const handleButtonClick = () => {
+      navigate('/contact-us');
+   };
 
    const classes = useStyles();
 
    React.useEffect(() => {
-      // Update the selected nav item based on the current path
+      // Update the selected nav item based on the current currentPath
       const navItem = navItems.find((item) => item.path === currentPath);
       if (navItem) {
          setSelectedNav(navItem.label);
@@ -71,7 +83,7 @@ const Header = () => {
                   <ListItem disablePadding>
                      <ListItemButton
                         sx={{ textAlign: 'center', }}
-                        className={selectedNav === item.label ? 'active' : ''}
+                        className={(selectedNav === item.label && item.path !== '/contact-us') ? 'active' : 'notActive'}
                         onClick={() => handleNavClick(item.label, item.path)}
                      >
                         <ListItemText primary={item.label} />
@@ -111,11 +123,12 @@ const Header = () => {
                      <A
                         key={item.label}
                         href={item.path}
-                        style={{ textDecoration: 'none', color: '#fff' }}
-                        className={currentPath === item.path ? classes.active : ''}
+                        style={{ marginRight: '16px', textDecoration:"none" }}
+                        className={currentPath === item.path ? classes.active : classes.notActive
+                        }
                         onClick={() => setSelectedNav(item.label)}
                      >
-                        <Button sx={{ color: '#fff', textTransform: 'none' }} style={{
+                        <Button sx={{ color: '#fff', textTransform: 'none', }} style={{
                            backgroundColor: selectedNav === item.label ? '#C22522' : 'transparent',
                         }} > {item.label}</Button>
                      </A>
@@ -125,24 +138,24 @@ const Header = () => {
 
                <Box sx={{ display: { xs: 'none', md: 'block', } }}>
                   {/* <A href="/contact-us"   > */}
-                     <Button
-                        variant="outlined"
-                        onClick={handleButtonClick}
-                        sx={{
+                  <Button
+                     variant="outlined"
+                     onClick={handleButtonClick}
+                     sx={{
+                        borderColor: '#C22522',
+                        color: 'white',
+                        textTransform: 'none',
+                        borderRadius: '6px',
+                        mr: 2,
+                        textDecoration: 'none !important',
+                        '&:hover': {
+                           backgroundColor: '#C22522',
                            borderColor: '#C22522',
-                           color: 'white',
-                           textTransform: 'none',
-                           borderRadius: '6px',
-                           mr: 2,
-                           textDecoration: 'none !important',
-                           '&:hover': {
-                              backgroundColor: '#C22522',
-                              borderColor: '#C22522',
-                           }
-                        }}
-                     >
-                        Request&nbsp;A&nbsp;Quote
-                     </Button>
+                        }
+                     }}
+                  >
+                     Request&nbsp;A&nbsp;Quote
+                  </Button>
                   {/* </A> */}
                </Box>
 

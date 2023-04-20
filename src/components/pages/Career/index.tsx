@@ -5,7 +5,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import myImage from "./CareerOpportunities.png";
+
+import myImageSmall from "./careers.svg"
 import Textarea from "@mui/joy/Textarea";
 import DescriptionIcon from "@mui/icons-material/Description";
 import CustomDialog from "../../DialogBox/Dialogbox";
@@ -124,11 +125,15 @@ const Careers = () => {
           justifyContent: "center",
         }}
       >
-        <img
-          src={myImage}
-          alt="My Image"
-          style={{ maxWidth: "-webkit-fill-available", minHeight: "200px" }}
-        />
+       
+
+  <img
+  srcSet={`${myImageSmall} 400w`}
+  sizes="(max-width: 600px) 400px, 800px"
+  alt="My Image"
+  style={{ maxWidth: "-webkit-fill-available", }}
+/>
+
         <div
           style={{
             position: "absolute",

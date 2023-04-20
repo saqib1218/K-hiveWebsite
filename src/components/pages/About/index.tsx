@@ -17,6 +17,8 @@ import AbPolygon6 from '../../../Assets/black Section/csPolygon6';
 import VerticalLine from '../../../Assets/black Section/aboutIcon2';
 import HorizontalLine from '../../../Assets/black Section/aboutIcon1';
 import TeamSection from '../Home/team-section';
+import myImageSmall from "./about.svg"
+
 
 const myImage = require('../../../Assets/images/aboutUsImage.jpg');
 const bgImage = require('../../../Assets/black Section/background.jpg');
@@ -92,7 +94,21 @@ const About = () => {
    const isSmall = useMediaQuery("(max-width:1200px)");
    return (
       <>
-         <div style={{ marginTop: '55px', }}>
+
+         <div style={{ position: "relative", marginTop: "40px", display: "flex", justifyContent: "center", }}>
+            <img
+               srcSet={`${myImageSmall} 400w`}
+               sizes="(max-width: 600px) 400px, 800px"
+               alt="about-us"
+               style={{ maxWidth: "-webkit-fill-available", }}
+            />
+            <div style={{ position: "absolute", top: "40%", }}>
+               <Typography style={{ color: "#FFFF", fontSize: fonts ? "30px" : "60px", fontWeight: 600, font: "Archivo", }} >
+                  About Us
+               </Typography>
+            </div>
+         </div>
+         {/* <div style={{ marginTop: '55px', }}>
             <div style={{ position: "relative", marginTop: "40px", display: "flex", justifyContent: "center", }}>
                <img src={myImage} alt="My Image" style={{ maxWidth: "100%", minHeight: "200px" }} />
                <div style={{ position: "absolute", top: "40%", }}>
@@ -101,7 +117,7 @@ const About = () => {
                   </Typography>
                </div>
             </div>
-         </div>
+         </div> */}
 
          <Grid container style={{ justifyContent: 'center', marginBottom: '100px' }}>
             <Grid item xs={11} sm={11} md={9} lg={7}>
