@@ -9,7 +9,7 @@ pipeline {
            }
            steps {
                  gitlabCommitStatus(name: 'build') {
-                     sh 'echo "REACT_APP_API_BASE_URL=http://backend.kryptohive.com/api/" > .env'
+                     sh 'echo "REACT_APP_API_BASE_URL=https://backend.kryptohive.com/api/" > .env'
                      sh 'yarn'
                      sh 'CI=false yarn build'
                  }
