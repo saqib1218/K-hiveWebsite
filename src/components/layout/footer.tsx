@@ -403,11 +403,13 @@ const Footer = () => {
         <Typography
           style={{
             display: "flex",
+            fontSize: textdecor ? '6px' : '12px',
             color: "#FFFF",
             font: "Archivo",
+
           }}
         >
-          © 2023 KRYPTOHIVE - ALL RIGHTS RESERVED KRYPTOHIVE
+          ©&nbsp;2023&nbsp;KRYPTOHIVE&nbsp;-&nbsp;ALL&nbsp;RIGHTS&nbsp;RESERVED&nbsp;KRYPTOHIVE
         </Typography>
       </Paper>
       {/* </div> */}

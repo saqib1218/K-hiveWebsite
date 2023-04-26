@@ -24,7 +24,7 @@ const navItems = [{ label: 'Home', path: '/' }, { label: 'About us', path: '/abo
 
 const useStyles = makeStyles({
    active: {
-      textDecoration: 'underline', color: '#C22522', marginRight: '16px'
+      textDecoration: 'underline', color: '#C22522', marginRight: '16px',
    },
    notActive: {
       textDecoration: 'none', color: '#fff', marginRight: '16px'
@@ -83,10 +83,11 @@ const Header = () => {
                   <ListItem disablePadding>
                      <ListItemButton
                         sx={{ textAlign: 'center', }}
-                        className={(selectedNav === item.label && item.path !== '/contact-us') ? 'active' : 'notActive'}
                         onClick={() => handleNavClick(item.label, item.path)}
+                        className={selectedNav === item.label ? classes.active : classes.notActive}
                      >
-                        <ListItemText primary={item.label} />
+                           <ListItemText primary={item.label} />
+                        {/* <ListItemText className={(selectedNav === item.label && item.path !== '/contact-us') ? 'active' : 'notActive'} primary={item.label} /> */}
                      </ListItemButton>
                   </ListItem>
                </React.Fragment>
@@ -129,7 +130,9 @@ const Header = () => {
                         onClick={() => setSelectedNav(item.label)}
                      >
                         <Button sx={{ color: '#fff', textTransform: 'none', }} style={{
-                           backgroundColor: selectedNav === item.label ? '#C22522' : 'transparent',
+                           // backgroundColor: selectedNav === item.label ? 'red' : 'transparent',
+                           color: selectedNav === item.label ? '#C22522' : '#FFFF',
+
                         }} > {item.label}</Button>
                      </A>
                   ))}
