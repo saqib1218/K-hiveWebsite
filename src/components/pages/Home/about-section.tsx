@@ -23,7 +23,7 @@ const AboutSection = () => {
 
    const typo1 = { font: 'Archivo', fontWeight: 'bold', fontSize: '24px', color: '#1E293B', lineHeight: "24px", marginBottom: '16px' }
    const typo2 = { font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: '#475569', lineHeight: '24px', marginBottom: '16px' }
-   const typo3 = { font: 'Archivo', fontWeight: '600px', fontSize: '32px', color: '#C22522', lineHeight: '24px', }
+   const typo3 = { font: 'Archivo', fontWeight: '600px', fontSize: '24px', color: '#C22522', lineHeight: '24px', }
    const typo4 = { font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: '#475569', lineHeight: '24px', }
    const btn = { borderRadius: '6px', textTransform: 'none', backgroundColor: "#C22522", marginTop: '24px' }
    const isScreenSmall = useMediaQuery('(max-width:500px)');

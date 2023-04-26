@@ -24,11 +24,6 @@ const BlockchainTexts = [
 
 
 const Home = () => {
-   const [webIndex, setWebIndex] = useState(0);
-   const [blockchainIndex, setBlockchainIndex] = useState(0);
-
-
-
    const typo0 = { font: 'Archivo', fontWeight: 'bold', color: '#FFFFFF', lineHeight: '60px', marginBottom: '16px' }
    const typo1 = { font: 'Archivo', fontWeight: 'bold', fontSize: '36px', color: '#1E293B', lineHeight: '36px', marginBottom: '16px' }
    const typo2 = { font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: '#C22522', lineHeight: '16px' }
@@ -44,49 +39,10 @@ const Home = () => {
 
    const theme = useTheme();
    const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // hides the element for screen sizes below 600px
-   const isScreenSmall = useMediaQuery('(max-width:700px)');
+   const isScreenSmall = useMediaQuery('(max-width:940px)');
    return (
       <>
-         <div style={{ position: 'relative', width: '100%', minHeight: '100vh', maxHeight: '1080px', marginTop: '40px', }}>
 
-            {/* <Lottie
-               animationData={animationData}
-               style={{ width: '100%', height: '500%', objectFit: 'cover', position: 'relative' }}
-            /> */}
-
-            <video
-               src={myVideo}
-               autoPlay
-               loop
-               muted
-               style={{ width: '100%', height: '500%', objectFit: 'cover', position: 'relative' }}
-            />
-
-            <div style={{ position: 'absolute', width: '100%', height: '100%', top: "0px", left: "0px", display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-               <Typography style={{ ...typo0, fontSize: isScreenSmall ? "36px" : '60px', }} sx={{ textAlign: 'center' }}>
-                  <Typed
-                     strings={WebTexts}
-                     typeSpeed={60}
-                     backSpeed={60}
-                     loop
-                  />
-               </Typography>
-               <Typography style={typo4}>
-                  <Typed
-                     autoInsertCss={true}
-                     strings={BlockchainTexts}
-                     typeSpeed={35}
-                     backSpeed={20}
-                     loop
-                  />
-               </Typography>
-               <A href="/contact-us" style={{ textDecoration: 'none' }}>
-                  <Button variant="contained" size='large' sx={btn}>
-                     Request&nbsp;A&nbsp;Quote
-                  </Button>
-               </A>
-            </div>
-         </div>
 
          <div style={{
             backgroundImage: `url(${bgImage})`,
@@ -95,9 +51,43 @@ const Home = () => {
             backgroundPosition: 'center',
             width: '100%',
             minHeight: '1000px',
-            position: 'relative',
-
+            // position: 'relative',
+            marginTop: '40px',
          }}>
+            <div style={{ position: 'relative', width: '100%', minHeight: '100px', }}>
+               <video
+                  src={myVideo}
+                  autoPlay
+                  loop
+                  muted
+                  style={{ width: '100%', height: '200%', objectFit: 'contain', position: 'relative' }}
+               />
+
+               <div style={{ position: 'absolute', width: '100%', maxHeight: '100%', top: isScreenSmall ? "16px" : '350px', left: "0px", display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                  <Typography style={{ ...typo0, fontSize: isScreenSmall ? "24px" : '60px', }} sx={{ textAlign: 'center' }}>
+                     <Typed
+                        strings={WebTexts}
+                        typeSpeed={60}
+                        backSpeed={60}
+                        loop
+                     />
+                  </Typography>
+                  <Typography style={{ ...typo4, fontSize: isScreenSmall ? "12px" : '16px', }}>
+                     <Typed
+                        autoInsertCss={true}
+                        strings={BlockchainTexts}
+                        typeSpeed={35}
+                        backSpeed={20}
+                        loop
+                     />
+                  </Typography>
+                  <A href="/contact-us" style={{ textDecoration: 'none' }}>
+                     <Button variant="contained" size='large' sx={btn}>
+                        Request&nbsp;A&nbsp;Quote
+                     </Button>
+                  </A>
+               </div>
+            </div>
             <Grid container style={{ justifyContent: 'center' }}>
                <Grid item xs={11} sm={11} md={10} lg={10}>
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px' }}>
@@ -177,3 +167,8 @@ const Home = () => {
 }
 
 export default Home
+
+{/* <Lottie
+               animationData={animationData}
+               style={{ width: '100%', height: '500%', objectFit: 'cover', position: 'relative' }}
+            /> */}
