@@ -6,7 +6,7 @@ import BorderColorIcon from "@mui/icons-material/BorderColor";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-import myImageSmall from "./careers.svg"
+import myImageSmall from "./Careers1.svg"
 import Textarea from "@mui/joy/Textarea";
 import DescriptionIcon from "@mui/icons-material/Description";
 import CustomDialog from "../../DialogBox/Dialogbox";
@@ -23,27 +23,52 @@ const Careers = () => {
   const [showDialog, setShowDialog] = useState<boolean>(false);
   const [errorEmail, setErrorEmail] = useState("");
   const [errorPhone, setErrorPhone] = useState("");
+  const [errorName, setErrorName] = useState("");
+  const [errorSubject, setErrorSubject] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const handleSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
     // handle form submission here
     // Make axios post request to the server
     // Reset error messages
-
+setErrorMessage("")
     setErrorEmail("");
     setErrorPhone("");
-
+    setErrorName("")
+setErrorSubject("");
     // Validation
     let isValid = true;
-    if (!/\S+@\S+\.\S+/.test(email)) {
+    if (!subject.trim()) {
+      isValid = false;
+      setErrorSubject("Enter your subject");
+    }
+    if (!message.trim()) {
+      isValid = false;
+      setErrorMessage("Enter your message");
+    }
+    if (!name.trim()) {
+      isValid = false;
+      setErrorName("Enter your name");
+    }
+    if (!email) {
+      isValid = false;
+      setErrorEmail("Enter an Email");
+    }
+    else if (!/\S+@\S+\.\S+/.test(email)) {
       isValid = false;
 
       setErrorEmail("Enter a valid Email");
     }
-    if (!/^\d+$/.test(phone)) {
+    if (!phone.trim()) {
       isValid = false;
-
-      setErrorPhone("Enter a valid Phone Number");
+      setErrorPhone("Enter your phone number");
+    } else if (
+      !/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(phone)
+    ) {
+      isValid = false;
+      setErrorPhone("Enter a valid phone number");
     }
+
 
     console.log({selectedFile});
     const formData = new FormData();
@@ -131,7 +156,7 @@ const Careers = () => {
   srcSet={`${myImageSmall} 400w`}
   sizes="(max-width: 600px) 400px, 800px"
   alt="My Image"
-  style={{ maxWidth: "-webkit-fill-available", }}
+  style={{ width:"100%" }}
 />
 
         <div
@@ -270,35 +295,45 @@ const Careers = () => {
                 </Typography>
                 <div>
                   <div style={{ display: textdecor ? "initial" : "flex" }}>
-                    <TextField
-                      style={{
-                        marginBottom: 24,
-                        backgroundColor: "#FFFF",
-                        marginRight: "24px",
-                        width: "100%",
-                      }}
-                      label="Your name"
-                      variant="outlined"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                    <TextField
-                     error={errorEmail !== ""}
-                      style={{
-                        marginBottom: 24,
-                        backgroundColor: "#FFFF",
-                        width: "100%",
-                      }}
-                      label="Email"
-                      variant="outlined"
-                      value={email}
-                      helperText={errorEmail ? errorEmail : null}
-                      FormHelperTextProps={{ style: { marginBottom:-20   } }}
-                      onChange={(e) => {
-                        setErrorEmail("");
-                        setEmail(e.target.value);
-                      }}
-                    />
+                  <TextField
+                    error={errorName !== ""}
+
+                    style={{
+                      marginBottom: 24,
+                      backgroundColor: "#FFFF",
+                      marginRight: "24px",
+                      width: "100%",
+                      height: "58px",
+                    }}
+                    label="Your name"
+                    variant="outlined"
+                    helperText={errorName ? errorName : null}
+                    FormHelperTextProps={{ style: { marginBottom: 36 } }}
+                    value={name}
+                    onChange={(e) => {
+                      setErrorName("");
+                      setName(e.target.value);
+                    }}
+                  />
+                   
+                       <TextField
+                    error={errorEmail !== ""}
+                    style={{
+                      marginBottom: 24,
+                      backgroundColor: "#FFFF",
+                      width: "100%",
+                      height: "58px",
+                    }}
+                    label="Email"
+                    variant="outlined"
+                    helperText={errorEmail ? errorEmail : null}
+                    FormHelperTextProps={{ style: { marginBottom: 36 } }}
+                    value={email}
+                    onChange={(e) => {
+                      setErrorEmail("");
+                      setEmail(e.target.value);
+                    }}
+                  />
                   </div>
                   <div style={{ display: textdecor ? "initial" : "flex" }}>
                     <TextField
@@ -320,26 +355,44 @@ const Careers = () => {
                         setPhone(e.target.value);
                       }}
                     />
-                    <TextField
-                      style={{
-                        marginBottom: 24,
-                        backgroundColor: "#FFFF",
-                        width: "100%",
-                      }}
-                      label="Subject"
-                      variant="outlined"
-                      value={subject}
-                      onChange={(e) => setSubject(e.target.value)}
-                    />
+                     <TextField
+                    error={errorSubject !== ""}
+
+                    style={{
+                      marginBottom: 24,
+                      backgroundColor: "#FFFF",
+                      width: "100% ",
+                      height: "58px",
+                    }}
+                    label="Subject"
+                    variant="outlined"
+                    helperText={errorSubject ? errorSubject : null}
+                    FormHelperTextProps={{ style: { marginBottom: 36 } }}
+                    value={subject}
+                    onChange={(e) => {
+                      setErrorSubject("");
+                      setSubject(e.target.value);
+                    }}
+                  />
                   </div>
                   <Textarea
-                    minRows={4}
-                    placeholder="Lets us now what you are looking for"
-                    variant="outlined"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    sx={{ borderRadius: 5, marginBottom: 3 }}
-                  />
+                
+                 error={errorMessage !== ""}
+                  minRows={4}
+                  placeholder="Lets us now what you are looking for"
+                  variant="outlined"
+                  value={message}
+                
+                  onChange={(e) => {
+                    setErrorMessage("");
+                    setMessage(e.target.value);
+                  }}
+                 
+                  sx={{ borderRadius: 5, marginBottom: 2,   borderColor: errorMessage ? "#d32f2f" : "",
+                  borderWidth: errorMessage ? "2px" : "", }}
+                
+                />
+{errorMessage && <div style={{ color: "#d32f2f",marginBottom:"10px",marginTop:"-10px",fontSize:"0.75rem",marginLeft:10}}>{errorMessage}</div>}
 
                   {showPaper ? (
                     <Paper
@@ -429,13 +482,14 @@ const Careers = () => {
                               color: "#475569",
                             }}
                           >
-                            Drop jpg.&nbsp;{" "}
+                            Drop .pdf&nbsp;or{" "}
                             <Link
                               style={{
                                 fontWeight: 400,
                                 fontSize: "14px",
                                 lineHeight: "100%",
                                 color: "Red",
+                                textDecoration:"none"
                               }}
                               onClick={handleBrowseClick}
                             >

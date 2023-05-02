@@ -4,8 +4,6 @@ import TechnologiesSection from './technologies-section';
 import TeamSection from './team-section';
 import ServicesSection from './services-section';
 import { useTheme } from '@mui/material/styles';
-import Lottie from 'lottie-react';
-import animationData from '../../../Assets/video/DonsXbpSmn.json';
 import { Button, Grid, Typography, useMediaQuery, } from '@mui/material';
 // @ts-ignore 
 import Typed from 'react-typed';
@@ -18,8 +16,8 @@ const bgImage = require('../../../Assets/images/bg.jpg');
 
 const WebTexts = ["Web 3.0 Development", "Web 2.0 Development"];
 const BlockchainTexts = [
-   "Blockchain | Web 3 | Metaverse | XR",
-   "Web apps | Website | Mobile apps"
+   "IPFS | IoT | DAOs | Solidity | Holo | DApps",
+   "Web API | RSS | SOAP |  JSON | WSDL |  AJAX"
 ];
 
 
@@ -129,19 +127,19 @@ const Home = () => {
                   </A>
                </div>
 
-               {!isScreenSmall && (
-                  <Grid item xs={10} sm={10} md={10} lg={10}>
-                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px' }}>
-                        <Typography style={typo1} sx={{ textAlign: 'center' }}>
-                           Technologies We Work In
-                        </Typography>
-                        <Typography style={typo2}>
-                           Pioneering The Future Of Technology
-                        </Typography>
-                     </div>
-                     <TechnologiesSection />
-                  </Grid>
-               )}
+               {/* {!isScreenSmall && ( */}
+               <Grid item xs={10} sm={10} md={10} lg={10}>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px' }}>
+                     <Typography style={typo1} sx={{ textAlign: 'center' }}>
+                        Technologies We Work In
+                     </Typography>
+                     <Typography style={typo2}>
+                        Pioneering The Future Of Technology
+                     </Typography>
+                  </div>
+                  <TechnologiesSection />
+               </Grid>
+               {/* )} */}
 
 
                <Grid item xs={10} sm={10} md={10} lg={10} style={{ marginBottom: '55px' }}>
