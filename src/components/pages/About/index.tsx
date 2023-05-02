@@ -17,11 +17,34 @@ import AbPolygon6 from '../../../Assets/black Section/csPolygon6';
 import VerticalLine from '../../../Assets/black Section/aboutIcon2';
 import HorizontalLine from '../../../Assets/black Section/aboutIcon1';
 import TeamSection from '../Home/team-section';
-import myImageSmall from "./about.svg"
+import myImageSmall from "./aboutus1.svg"
 
 
 const myImage = require('../../../Assets/images/aboutUsImage.jpg');
 const bgImage = require('../../../Assets/black Section/background.jpg');
+
+
+const cardData = [
+   {
+      title: "Our Vision",
+      content: "We as a company intend to open avenues for clients and help them flourish their businesses and help our employees grow as team players and individuals.",
+      icon: { normal: <About1 />, hover: <AboutWhite1 /> }
+   },
+   {
+      title: "Our Mission",
+      content: "Our mission is to create a safe space for young minds to express their raw ideas and transform them into game-changers.",
+      icon: { normal: <About2 />, hover: <AboutWhite2 /> }
+   },
+   {
+      title: "Core Values",
+      content: "We personify honesty, dedication, and diligence to establish healthy interpersonal relationships and a workspace that values its clients and employees likewise.",
+      icon: { normal: <About3 />, hover: <AboutWhite3 /> }
+   }, {
+      title: "Accountability",
+      content: "We believe that the people who exercise their freedom responsibly, do not fear accountability. They’re reliable and take ownership of their work.",
+      icon: { normal: <About4 />, hover: <AboutWhite4 /> }
+   },
+];
 
 const cardsToDisplay = [
    {
@@ -76,19 +99,15 @@ const cardsToDisplay = [
 
 const About = () => {
 
-
-   const [hoveredItem1, setHoveredItem1] = React.useState(false);
-   const [hoveredItem2, setHoveredItem2] = React.useState(false);
-   const [hoveredItem3, setHoveredItem3] = React.useState(false);
-   const [hoveredItem4, setHoveredItem4] = React.useState(false);
+   const [hoveredItem, setHoveredItem] = React.useState(-1);
 
    const typo0 = { font: 'Archivo', fontWeight: '600px', fontSize: '24px', lineHeight: '24px', marginBottom: '16px' }
    const typo1 = { font: 'Archivo', fontWeight: 'bold', fontSize: '36px', color: '#1E293B', lineHeight: '36px', marginBottom: '16px' }
    const typo2 = { font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: '#C22522', lineHeight: '16px' }
    const typo3 = { font: 'Archivo', fontWeight: '200px', fontSize: '16px', color: '#475569', lineHeight: '24px', marginBottom: '16px' }
    const boxtypo1 = { font: 'Archivo', fontWeight: '500px', fontSize: '14px', lineHeight: '36px', }
-   const boxtypo2 = { font: 'Archivo', fontWeight: 'bold', fontSize: '18px', color: '#ffffff', lineHeight: '36px', }
-   const boxtypo3 = { font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: '#ffffff', lineHeight: '24px', marginBottom: '16px' }
+   const boxtypo2 = { font: 'Archivo', fontWeight: 'bold', fontSize: '18px', color: '#ffffff', lineHeight: '26px', }
+   const boxtypo3 = { font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: '#ffffff', lineHeight: '24px', marginBottom: '16px', marginTop: '8px' }
 
    const fonts = useMediaQuery("(max-width:1470px)");
    const isSmall = useMediaQuery("(max-width:1200px)");
@@ -100,7 +119,7 @@ const About = () => {
                srcSet={`${myImageSmall} 400w`}
                sizes="(max-width: 600px) 400px, 800px"
                alt="about-us"
-               style={{ maxWidth: "-webkit-fill-available", }}
+               style={{ width: "100%", }}
             />
             <div style={{ position: "absolute", top: "40%", }}>
                <Typography style={{ color: "#FFFF", fontSize: fonts ? "30px" : "60px", fontWeight: 600, font: "Archivo", }} >
@@ -108,19 +127,9 @@ const About = () => {
                </Typography>
             </div>
          </div>
-         {/* <div style={{ marginTop: '55px', }}>
-            <div style={{ position: "relative", marginTop: "40px", display: "flex", justifyContent: "center", }}>
-               <img src={myImage} alt="My Image" style={{ maxWidth: "100%", minHeight: "200px" }} />
-               <div style={{ position: "absolute", top: "40%", }}>
-                  <Typography style={{ color: "#FFFF", fontSize: fonts ? "30px" : "50px", fontWeight: 600, font: "Archivo", }} >
-                     About Us
-                  </Typography>
-               </div>
-            </div>
-         </div> */}
 
          <Grid container style={{ justifyContent: 'center', marginBottom: '100px' }}>
-            <Grid item xs={11} sm={11} md={9} lg={7}>
+            <Grid item xs={11} sm={11} md={9} lg={7} xl={8}>
 
                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px' }}>
                   <Typography style={typo1}>
@@ -136,53 +145,21 @@ const About = () => {
                </div>
             </Grid>
 
-            <Grid item xs={11} sm={11} md={11} lg={11}>
+            <Grid item xs={12} sm={12} md={12} lg={11} xl={8}>
                <Grid container spacing={4} style={{ display: 'flex', justifyContent: 'center' }}>
 
-                  <Grid item xs={12} sm={6} md={3} lg={3} xl={3} style={{ display: 'grid', justifyItems: 'center' }}>
-                     <Paper
-                        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '24px', backgroundColor: hoveredItem1 ? '#C22522' : ' #F8FAFC', border: '1px solid #E2E8F0', boxShadow: 'none', borderRadius: '16px' }}
-                        onMouseEnter={() => { setHoveredItem1(true) }} onMouseLeave={() => { setHoveredItem1(false) }}>
-                        {/* <About1 /> */}
-                        {hoveredItem1 ? <AboutWhite1 /> : <About1 />}
-                        <Typography style={{ ...typo0, color: hoveredItem1 ? 'white' : '#C22522' }} marginTop={'16px'}>Our Vision</Typography>
-                        <Typography style={{ font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: hoveredItem1 ? 'white' : '#475569', lineHeight: '24px', textAlign: 'center' }}
-                        >We as a company intend to open avenues for clients and help them flourish their businesses and help our employees grow as team players and individuals.</Typography>
-                     </Paper>
-                  </Grid>
-
-                  <Grid item xs={12} sm={6} md={3} lg={3} xl={3} style={{ display: 'grid', justifyItems: 'center' }}>
-                     <Paper style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '24px', backgroundColor: hoveredItem2 ? '#C22522' : ' #F8FAFC', border: '1px solid #E2E8F0', boxShadow: 'none', borderRadius: '16px' }}
-                        onMouseEnter={() => { setHoveredItem2(true) }} onMouseLeave={() => { setHoveredItem2(false) }}>
-                        {/* <About2 /> */}
-                        {hoveredItem2 ? <AboutWhite2 /> : <About2 />}
-                        <Typography style={{ ...typo0, color: hoveredItem2 ? 'white' : '#C22522' }} marginTop={'16px'}>Our Mission</Typography>
-                        <Typography style={{ font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: hoveredItem2 ? 'white' : '#475569', lineHeight: '24px', textAlign: 'center' }}
-                        >Our mission is to create a safe space for young minds to express their raw ideas and transform them into game-changers.</Typography>
-                     </Paper>
-                  </Grid>
-
-                  <Grid item xs={12} sm={6} md={3} lg={3} xl={3} style={{ display: 'grid', justifyItems: 'center' }}>
-                     <Paper style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '24px', backgroundColor: hoveredItem3 ? '#C22522' : ' #F8FAFC', border: '1px solid #E2E8F0', boxShadow: 'none', borderRadius: '16px' }}
-                        onMouseEnter={() => { setHoveredItem3(true) }} onMouseLeave={() => { setHoveredItem3(false) }}>
-                        {/* <About3 /> */}
-                        {hoveredItem3 ? <AboutWhite3 /> : <About3 />}
-                        <Typography style={{ ...typo0, color: hoveredItem3 ? 'white' : '#C22522' }} marginTop={'16px'}>Core Values </Typography>
-                        <Typography style={{ font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: hoveredItem3 ? 'white' : '#475569', lineHeight: '24px', textAlign: 'center' }}
-                        >We personify honesty, dedication, and diligence to establish healthy interpersonal relationships and a workspace that values its clients and employees likewise.</Typography>
-                     </Paper>
-                  </Grid>
-
-                  <Grid item xs={12} sm={6} md={3} lg={3} xl={3} style={{ display: 'grid', justifyItems: 'center' }}>
-                     <Paper style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '24px', backgroundColor: hoveredItem4 ? '#C22522' : ' #F8FAFC', border: '1px solid #E2E8F0', boxShadow: 'none', borderRadius: '16px' }}
-                        onMouseEnter={() => { setHoveredItem4(true) }} onMouseLeave={() => { setHoveredItem4(false) }}>
-                        {/* <About4 /> */}
-                        {hoveredItem4 ? <AboutWhite4 /> : <About4 />}
-                        <Typography style={{ ...typo0, color: hoveredItem4 ? 'white' : '#C22522' }} marginTop={'16px'}>Accountability</Typography>
-                        <Typography style={{ font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: hoveredItem4 ? 'white' : '#475569', lineHeight: '24px', textAlign: 'center' }}
-                        >We believe that the people who exercise their freedom responsibly, do not fear accountability. They’re reliable and take ownership of their work. </Typography>
-                     </Paper>
-                  </Grid>
+                  {cardData.map((card, index) => (
+                     <Grid item xs={12} sm={6} md={3} lg={3} xl={3} style={{ display: 'grid', justifyItems: 'center' }}>
+                        <Paper
+                           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '24px', backgroundColor: hoveredItem === index ? '#C22522' : ' #F8FAFC', border: '1px solid #E2E8F0', boxShadow: 'none', borderRadius: '16px' }}
+                           onMouseEnter={() => { setHoveredItem(index) }} onMouseLeave={() => { setHoveredItem(-1) }}
+                        >
+                           {hoveredItem === index ? card.icon.hover : card.icon.normal}
+                           <Typography style={{ ...typo0, color: hoveredItem === index ? 'white' : '#C22522' }} marginTop={'16px'}>{card.title}</Typography>
+                           <Typography style={{ font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: hoveredItem === index ? 'white' : '#475569', lineHeight: '24px', textAlign: 'center' }}>{card.content}</Typography>
+                        </Paper>
+                     </Grid>
+                  ))}
 
                </Grid>
 
@@ -211,72 +188,78 @@ const About = () => {
                </Typography>
             </div>
 
-            {isSmall ? (
-               <div style={{ display: 'flex', flexDirection: 'column', width: '100%', justifyContent: 'center' }}>
+            <Grid container style={{ justifyContent: 'center', }}>
+               <Grid item xs={11} sm={11} md={11} lg={11} xl={8}>
+                  {isSmall ? (
 
-                  {cardsToDisplay.map((data, index) => (
+                     <div style={{ display: 'flex', flexDirection: 'column', width: '100%', justifyContent: 'center' }}>
 
-                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', }}>
-                        <div style={{ maxHeight: '100px', display: index === 0 ? "none" : "flex" }}><VerticalLine /> </div>
-                        <div >
-                           {data.iconMobile}
-                        </div>
-                        <div style={{ maxHeight: '50px' }}><VerticalLine /> </div>
-                        <Paper
-                           style={{ maxWidth: '500px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: "16px", backgroundColor: '#1C1C1C', border: ' 1px solid #475569', borderRadius: '16px' }}>
-                           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                              <Typography style={{ ...boxtypo1, color: data.color }}>
-                                 {data.title}
-                              </Typography>
-                              <Typography style={{ ...boxtypo2, textAlign: 'center' }}>
-                                 {data.heading}
-                              </Typography>
-                              <Typography style={{ ...boxtypo3, textAlign: 'center' }}>
-                                 {data.desc}
-                              </Typography>
+                        {cardsToDisplay.map((data, index) => (
+
+                           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', }}>
+                              <div style={{ maxHeight: '100px', display: index === 0 ? "none" : "flex" }}><VerticalLine /> </div>
+                              <div >
+                                 {data.iconMobile}
+                              </div>
+                              <div style={{ maxHeight: '50px' }}><VerticalLine /> </div>
+                              <Paper
+                                 style={{ maxWidth: '500px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: "16px", backgroundColor: '#1C1C1C', border: ' 1px solid #475569', borderRadius: '16px' }}>
+                                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                    <Typography style={{ ...boxtypo1, color: data.color }}>
+                                       {data.title}
+                                    </Typography>
+                                    <Typography style={{ ...boxtypo2, textAlign: 'center' }}>
+                                       {data.heading}
+                                    </Typography>
+                                    <Typography style={{ ...boxtypo3, textAlign: 'center' }}>
+                                       {data.desc}
+                                    </Typography>
+                                 </div>
+                              </Paper>
                            </div>
-                        </Paper>
+                        ))}
                      </div>
-                  ))}
-               </div>
-            ) : (
-               <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-                  <div style={{ alignSelf: 'center' }}><HorizontalLine /></div>
-                  {cardsToDisplay.map((data, index) => (
-                     <div style={{
-                        display: 'flex',
-                        flexDirection: (index % 2 === 0) ? "row" : "row-reverse",
-                        width: (index % 2 === 0) ? "50.18%" : "50%",
-                        flex: '1',
-                        alignSelf: (index % 2 === 0) ? 'flex-end' : '',
+                  ) : (
+                     <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+                        <div style={{ alignSelf: 'center' }}><HorizontalLine /></div>
+                        {cardsToDisplay.map((data, index) => (
+                           <div style={{
+                              display: 'flex',
+                              flexDirection: (index % 2 === 0) ? "row" : "row-reverse",
+                              width: (index % 2 === 0) ? "50.18%" : "50%",
+                              flex: '1',
+                              alignSelf: (index % 2 === 0) ? 'flex-end' : '',
 
-                     }}>
-                        <div style={{
-                           borderLeft: (index % 2 === 0) ? '3px dashed #333' : '0px',
-                           borderRight: (index % 2 === 0) ? "0px" : "3px dashed #333",
-                           borderSpacing: '10px',
-                        }}>
-                           {data.icon}
-                        </div>
-                        <Paper
-                           style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: "16px", backgroundColor: '#1C1C1C', border: ' 1px solid #475569', borderRadius: '16px' }}>
-                           <div>
-                              <Typography style={{ ...boxtypo1, color: data.color }}>
-                                 {data.title}
-                              </Typography>
-                              <Typography style={boxtypo2}>
-                                 {data.heading}
-                              </Typography>
-                              <Typography style={boxtypo3}>
-                                 {data.desc}
-                              </Typography>
+                           }}>
+                              <div style={{
+                                 borderLeft: (index % 2 === 0) ? '3px dashed #333' : '0px',
+                                 borderRight: (index % 2 === 0) ? "0px" : "3px dashed #333",
+                                 borderSpacing: '10px', maxWidth: '150px'
+                              }}>
+                                 {data.icon}
+                              </div>
+                              <Paper
+                                 style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: "16px", backgroundColor: '#1C1C1C', border: ' 1px solid #475569', borderRadius: '16px' }}>
+                                 <div>
+                                    <Typography style={{ ...boxtypo1, color: data.color }}>
+                                       {data.title}
+                                    </Typography>
+                                    <Typography style={boxtypo2}>
+                                       {data.heading}
+                                    </Typography>
+                                    <Typography style={boxtypo3}>
+                                       {data.desc}
+                                    </Typography>
+                                 </div>
+                              </Paper>
                            </div>
-                        </Paper>
-                     </div>
-                  ))}
-                  <div style={{ alignSelf: 'center' }}><HorizontalLine /></div>
-               </div >
-            )}
+                        ))}
+                        <div style={{ alignSelf: 'center' }}><HorizontalLine /></div>
+                     </div >
+                  )}
+
+               </Grid>
+            </Grid>
          </div >
 
          <div style={{ padding: '24px', width: '100%', }}>

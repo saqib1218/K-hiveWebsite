@@ -33,6 +33,9 @@ const ContactUs = () => {
   const [phone, setPhone] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [errorName, setErrorName] = useState("");
+  const [errorSubject, setErrorSubject] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [errorEmail, setErrorEmail] = useState("");
   const [errorPhone, setErrorPhone] = useState("");
@@ -44,18 +47,40 @@ const ContactUs = () => {
 
     setErrorEmail("");
     setErrorPhone("");
-
+setErrorName("")
+setErrorMessage("")
+setErrorSubject("")
     // Validation
     let isValid = true;
-    if (!/\S+@\S+\.\S+/.test(email)) {
+    if (!subject.trim()) {
+      isValid = false;
+      setErrorSubject("Enter your subject");
+    }
+    if (!message.trim()) {
+      isValid = false;
+      setErrorMessage("Enter your message");
+    }
+    if (!name.trim()) {
+      isValid = false;
+      setErrorName("Enter your name");
+    }
+    if (!email) {
+      isValid = false;
+      setErrorEmail("Enter an Email");
+    }
+    else if (!/\S+@\S+\.\S+/.test(email)) {
       isValid = false;
 
       setErrorEmail("Enter a valid Email");
     }
-    if (!/^\d+$/.test(phone)) {
+    if (!phone.trim()) {
       isValid = false;
-
-      setErrorPhone("Enter a valid Phone Number");
+      setErrorPhone("Enter your phone number");
+    } else if (
+      !/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(phone)
+    ) {
+      isValid = false;
+      setErrorPhone("Enter a valid phone number");
     }
 
     if (isValid) {
@@ -99,7 +124,7 @@ const ContactUs = () => {
   srcSet={`${myImageSmall} 400w`}
   sizes="(max-width: 600px) 400px, 800px"
   alt="My Image"
-  style={{ maxWidth: "-webkit-fill-available", }}
+  style={{ width:"100%" }}
 />
 
         <div
@@ -163,7 +188,7 @@ const ContactUs = () => {
               lineHeight: line ? "150%" : "100%",
             }}
           >
-            For any quires, questions or concern, feel free to contacts us
+            For any queries, questions or concern, feel free to contacts us
             anytime.
           </Typography>
           <div>
@@ -471,6 +496,8 @@ const ContactUs = () => {
               <div>
                 <div style={{ display: textdecor ? "initial" : "flex" }}>
                   <TextField
+                    error={errorName !== ""}
+
                     style={{
                       marginBottom: 24,
                       backgroundColor: "#FFFF",
@@ -480,8 +507,13 @@ const ContactUs = () => {
                     }}
                     label="Your name"
                     variant="outlined"
+                    helperText={errorName ? errorName : null}
+                    FormHelperTextProps={{ style: { marginBottom: 36 } }}
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => {
+                      setErrorName("");
+                      setName(e.target.value);
+                    }}
                   />
                   <TextField
                     error={errorEmail !== ""}
@@ -523,6 +555,8 @@ const ContactUs = () => {
                     }}
                   />
                   <TextField
+                    error={errorSubject !== ""}
+
                     style={{
                       marginBottom: 24,
                       backgroundColor: "#FFFF",
@@ -531,18 +565,33 @@ const ContactUs = () => {
                     }}
                     label="Subject"
                     variant="outlined"
+                    helperText={errorSubject ? errorSubject : null}
+                    FormHelperTextProps={{ style: { marginBottom: 36 } }}
                     value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
+                    onChange={(e) => {
+                      setErrorSubject("");
+                      setSubject(e.target.value);
+                    }}
                   />
                 </div>
                 <Textarea
+                
+                 error={errorMessage !== ""}
                   minRows={4}
                   placeholder="Lets us now what you are looking for"
                   variant="outlined"
                   value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  sx={{ borderRadius: 5, marginBottom: 3 }}
+                
+                  onChange={(e) => {
+                    setErrorMessage("");
+                    setMessage(e.target.value);
+                  }}
+                 
+                  sx={{ borderRadius: 5, marginBottom: 2,   borderColor: errorMessage ? "#d32f2f" : "",
+                  borderWidth: errorMessage ? "2px" : "", }}
+                
                 />
+{errorMessage && <div style={{ color: "#d32f2f",marginBottom:"10px",marginTop:"-10px",fontSize:"0.75rem",marginLeft:10}}>{errorMessage}</div>}
               </div>
               <div style={{ display: "flex", justifyContent: "center" }}>
                 {" "}

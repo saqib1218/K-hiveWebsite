@@ -35,7 +35,11 @@ const Footer = () => {
     setShowError(false);
     // Make axios post request to the server
     console.log(email);
-
+    if (!email.trim()) { // add this condition to check if email field is empty or contains only whitespace
+      setShowError(true);
+      setError_Email("Enter an Email");
+      return; // return early if email is empty to prevent making the POST request
+    }
     try {
       const response = await axios.post("/emails-for-news", {
         email: email,
@@ -50,7 +54,7 @@ const Footer = () => {
     } catch (error) {
       console.error(error);
       setShowError(true);
-      setError_Email("Enter the valid Email");
+      setError_Email("Enter a valid Email");
     }
   };
 
@@ -197,6 +201,7 @@ const Footer = () => {
                 </A>
                 <A
                   href={"/about"}
+                  
                   style={{ textDecoration: "none", font: "Archivo" }}
                 >
                   <Typography
@@ -205,28 +210,32 @@ const Footer = () => {
                       color: "#FFFF",
                       fontSize: "16px",
                       marginTop: "10px",
+                      
                     }}
                   >
                     About us{" "}
                   </Typography>
                 </A>{" "}
                 <A
-                  href={"/careers"}
+                  href={"/services"}
                   style={{ textDecoration: "none", font: "Archivo" }}
                 >
+              
                   <Typography
-                    style={{
+                
+                    sx={{
                       fontWeight: "400",
                       color: "#FFFF",
                       fontSize: "16px",
                       marginTop: "10px",
+                      
                     }}
                   >
                     Services{" "}
                   </Typography>
                 </A>{" "}
                 <A
-                  href={"/contact-us"}
+                  href={"/careers"}
                   style={{ textDecoration: "none", font: "Archivo" }}
                 >
                   <Typography
@@ -261,7 +270,7 @@ const Footer = () => {
                 <LocationOnIcon
                   style={{
                     color: "#FFFF",
-                    marginRight: "12px",
+                    marginRight: "9px",
                     marginTop: "12px",
                   }}
                 />
@@ -365,6 +374,9 @@ const Footer = () => {
                   marginBottom: 24,
                 },
               }}
+              InputProps={{
+                disableUnderline: true
+              }}
             />
             <Button
               type="submit"
@@ -403,7 +415,7 @@ const Footer = () => {
         <Typography
           style={{
             display: "flex",
-            fontSize: textdecor ? '6px' : '12px',
+            fontSize: textdecor ? '12px' : '16px',
             color: "#FFFF",
             font: "Archivo",
 

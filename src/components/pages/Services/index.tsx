@@ -21,6 +21,7 @@ import CsPolygon9 from "../../../Assets/Devops";
 
 import axios from "axios";
 import CustomDialog from "../../DialogBox/Dialogbox";
+
 const Services = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -28,6 +29,9 @@ const Services = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
+  const [errorName, setErrorName] = useState("");
+  const [errorSubject, setErrorSubject] = useState("");
+const[errorMessage,setErrorMessage]=useState("");
   const [errorPhone, setErrorPhone] = useState("");
   const [showDialog, setShowDialog] = useState<boolean>(false);
 
@@ -41,19 +45,41 @@ const Services = () => {
     // Reset error messages
     setErrorEmail("");
     setErrorPhone("");
-
+    setErrorSubject("")
+setErrorName('')
+setErrorMessage('')
     // Validation
     let isValid = true;
-    if (!/\S+@\S+\.\S+/.test(email)) {
+    if (!subject.trim()){
+      isValid=false;
+      setErrorSubject("Enter your subject")
+    }
+    if (!message.trim()){
+      isValid=false;
+      setErrorMessage("Enter your message")
+    }
+    if (!name.trim()) {
+      isValid = false;
+      setErrorName("Enter your name");
+    }
+    if (!email) {
+      isValid = false;
+      setErrorEmail("Enter an Email");
+    }
+    else if (!/\S+@\S+\.\S+/.test(email)) {
       isValid = false;
       setErrorEmail("Enter a valid Email");
     }
-    if (
+    if (!phone.trim()) {
+      isValid = false;
+      setErrorPhone("Enter your phone number");
+    } else if (
       !/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(phone)
     ) {
       isValid = false;
-      setErrorPhone("Enter a valid Phone Number");
+      setErrorPhone("Enter a valid phone number");
     }
+    
 
     if (isValid) {
       try {
@@ -116,7 +142,7 @@ const Services = () => {
   srcSet={`${myImageSmall} 400w`}
   sizes="(max-width: 600px) 400px, 800px"
   alt="My Image"
-  style={{ maxWidth: "-webkit-fill-available", }}
+  style={{ width:"100%" }}
 />
 
         <div
@@ -175,6 +201,7 @@ const Services = () => {
         <Grid container spacing={4} xl={10} lg={10} md={11} sm={11} xs={12}>
           ​
           <Grid
+          
             item
             xs={12}
             sm={6}
@@ -185,6 +212,7 @@ const Services = () => {
           >
             <Paper
               style={{
+                maxWidth:"625px",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -235,6 +263,7 @@ const Services = () => {
           >
             <Paper
               style={{
+                maxWidth:"625px",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -286,6 +315,7 @@ const Services = () => {
           >
             <Paper
               style={{
+                maxWidth:"625px",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -337,6 +367,7 @@ const Services = () => {
           >
             <Paper
               style={{
+                maxWidth:"625px",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -387,6 +418,7 @@ const Services = () => {
           >
             <Paper
               style={{
+                maxWidth:"625px",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -437,6 +469,7 @@ const Services = () => {
           >
             <Paper
               style={{
+                maxWidth:"625px",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -488,6 +521,7 @@ const Services = () => {
           >
             <Paper
               style={{
+                maxWidth:"625px",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -539,6 +573,7 @@ const Services = () => {
           >
             <Paper
               style={{
+                maxWidth:"625px",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -591,6 +626,7 @@ const Services = () => {
           >
             <Paper
               style={{
+                maxWidth:"625px",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -666,10 +702,11 @@ const Services = () => {
         >
           Contact us for free Consultation,time & cost for your Projects
         </Typography>
-        <Grid container style={{ display: "flex", justifyContent: "center" }}>
-          <Grid item lg={8} xl={5} md={8} xs={11} sm={10}>
+        <Grid container xs={10.5}style={{ display: "flex", justifyContent: "center"  }}>
+          <Grid item lg={8} xl={5} md={8} xs={11} sm={10} sx={{display:"contents"}} >
             <Paper
               style={{
+                
                 borderRadius: "16px",
                 backgroundColor: "#F8FAFC",
                 boxShadow: "none",
@@ -701,6 +738,8 @@ const Services = () => {
                 <div>
                   {/* <div style={{ display: textdecor ? "initial" : "flex" }}> */}
                   <TextField
+                    error={errorName !== ""}
+
                     style={{
                       marginBottom: 24,
                       backgroundColor: "#FFFF",
@@ -709,8 +748,20 @@ const Services = () => {
                     }}
                     label="Your name"
                     variant="outlined"
+                    helperText={errorName ? errorName : null}
+                    FormHelperTextProps={{
+                      style: {
+                        background: "#F8FAFC",
+                        padding: 0,
+                        width: "100%",
+                        marginLeft: "-1px",
+                      },
+                    }}
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => {
+                      setErrorName("");
+                      setName(e.target.value);
+                    }}
                   />
                   <TextField
                     error={errorEmail !== ""}
@@ -764,6 +815,8 @@ const Services = () => {
                     }}
                   />
                   <TextField
+                    error={errorSubject !== ""}
+
                     style={{
                       marginBottom: 24,
                       backgroundColor: "#FFFF",
@@ -771,18 +824,42 @@ const Services = () => {
                     }}
                     label="Subject"
                     variant="outlined"
+                    helperText={errorSubject ? errorSubject : null}
+                    FormHelperTextProps={{
+                      style: {
+                        background: "#F8FAFC",
+                        padding: 0,
+                        width: "100%",
+                        marginLeft: "-1px",
+                      },
+                    }}
                     value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
+                    onChange={(e) => {
+                      setErrorSubject("");
+                      setSubject(e.target.value);
+                    }}
                   />
                   {/* </div> */}
                   <Textarea
-                    minRows={4}
-                    placeholder="Lets us now what you are looking for"
-                    variant="outlined"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    sx={{ borderRadius: 5, marginBottom: 3 }}
-                  />
+                
+                error={errorMessage !== ""}
+                 minRows={4}
+                 
+                 placeholder="Lets us now what you are looking for"
+                
+                 variant="outlined"
+                 value={message}
+               
+                 onChange={(e) => {
+                   setErrorMessage("");
+                   setMessage(e.target.value);
+                 }}
+               
+                 sx={{ borderRadius: 5, marginBottom: 2,   borderColor: errorMessage ? "#d32f2f" : "",
+                 borderWidth: errorMessage ? "2px" : "",     }}
+               
+               />
+{errorMessage && <div style={{ color: "#d32f2f",marginTop:"-10px",fontSize:"0.75rem",marginBottom:20}}>{errorMessage}</div>}
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   {" "}
