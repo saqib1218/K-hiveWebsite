@@ -9,6 +9,7 @@ import Services from "../components/pages/Services";
 import Blogs from "../components/pages/Blogs";
 import Login from "../components/login/login";
 import SignUp from "../components/signup/signup";
+import EditBlog from "../components/pages/Blogs/editBlog";
 
 function Route() {
 
@@ -32,7 +33,7 @@ function Route() {
          <Blogs />
       ),
       '/blogs/write': () => (
-         <Blogs />
+         <EditBlog />
       ),
       '/login': () => (
          <Login />
