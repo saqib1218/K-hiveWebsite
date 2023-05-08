@@ -69,13 +69,13 @@ const AboutSection = () => {
                Transforming your vision into a viable digital solution.
             </Typography>
             <Typography style={typo2} sx={{ textAlign: isScreenSmall ? "center" : 'normal' }}>
-               Kryptohive is a renowned company that specializes in providing advanced information technology solutions to clients worldwide. Our team of experts is dedicated to developing innovative and creative products and services that cater to the unique needs of our clients.
+            Kryptohive is a renowned company that specializes in providing advanced information technology solutions to clients worldwide. Our team of experts is dedicated to developing innovative and creative products and services that cater to the unique needs of our clients.
             </Typography>
             <Typography style={typo2} sx={{ textAlign: isScreenSmall ? "center" : 'normal' }}>
-               Our web 2.0 has wide range of services includes web design and development, tailor-made applications, ERPs,CRMs, e-commerce solutions, business-to-business applications, business-to-client applications, managed hosting, and internet portal management. Our web 3.0 also has wide range of services includes Decentralized aplication development, Blockchain development and integration. Smart contract development, IoT integration, web 3.0 project management and implementation and web 3.0 consulting and strategy development.
+            Our web 2.0 has a wide range of services, including web design and development, tailor-made applications, ERPs,CRMs, e-commerce solutions, business-to-business applications, business-to-client applications, managed hosting, and internet portal management. Our Web 3.0 also has a wide range of services, including decentralized application development, blockchain development, and integration. Smart contract development, IoT integration, web 3.0 project management and implementation, and web 3.0 consulting and strategy development.
             </Typography>
             <Typography style={typo2} sx={{ textAlign: isScreenSmall ? "center" : 'normal' }}>
-               We take pride in the quality of our work, and our satisfied clients around the world are a testament to our commitment to delivering exceptional services. As a technology leader, we are constant ly exploring new avenues to expand our expertise and export quality software worldwide
+            We take pride in the quality of our work, and our satisfied clients around the world are a testament to our commitment to delivering exceptional services. As a technology leader, we are constantly exploring new avenues to expand our expertise and export quality software worldwide.
             </Typography>
 
             <Button variant="contained" size='large' component={A} href={'/contact-us'} sx={{

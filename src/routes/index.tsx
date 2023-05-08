@@ -6,6 +6,9 @@ import Careers from "../components/pages/Career";
 import ContactUs from "../components/pages/ContactUs";
 import Home from "../components/pages/Home";
 import Services from "../components/pages/Services";
+import Blogs from "../components/pages/Blogs";
+import Login from "../components/login/login";
+import SignUp from "../components/signup/signup";
 
 function Route() {
 
@@ -24,6 +27,18 @@ function Route() {
       ),
       '/contact-us': () => (
          <ContactUs />
+      ),
+      '/blogs': () => (
+         <Blogs />
+      ),
+      '/blogs/write': () => (
+         <Blogs />
+      ),
+      '/login': () => (
+         <Login />
+      ),
+      '/signup': () => (
+         <SignUp />
       ),
 
    }

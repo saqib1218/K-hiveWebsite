@@ -128,7 +128,7 @@ const Home = () => {
                </div>
 
                {/* {!isScreenSmall && ( */}
-               <Grid item xs={10} sm={10} md={10} lg={10}>
+               <Grid item xs={10} sm={10} md={10} lg={10} style={{ marginBottom: "30px" }}>
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px' }}>
                      <Typography style={typo1} sx={{ textAlign: 'center' }}>
                         Technologies We Work In
@@ -143,16 +143,6 @@ const Home = () => {
 
 
                <Grid item xs={10} sm={10} md={10} lg={10} style={{ marginBottom: '55px' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px' }}>
-                     <Typography style={typo1}>
-                        Our Team
-                     </Typography>
-                     <Typography style={typo2}>
-                        Meet Our Talented Team
-                     </Typography>
-                  </div>
-
-
                   <TeamSection />
 
                </Grid>
