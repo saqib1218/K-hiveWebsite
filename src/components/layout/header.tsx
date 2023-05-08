@@ -25,6 +25,7 @@ const navItems = [
   { label: "About us", path: "/about" },
   { label: "Services", path: "/services" },
   { label: "Careers", path: "/careers" },
+  // { label: "Blogs", path: "/blogs" },
 ];
 
 const useStyles = makeStyles({
@@ -118,7 +119,7 @@ const Header = () => {
               textTransform: "none",
               backgroundColor: "#C22522",
               alignSelf: "stretch",
-              margin: "16px",
+              margin: "16px 1px 16px 1px",
               "&:hover": {
                 backgroundColor: "#C22522",
                 borderColor: "#C22522",
@@ -128,7 +129,28 @@ const Header = () => {
             Request&nbsp;a&nbsp;Quote
           </Button>
         </A>
-        <Divider />
+        {/* <Divider /> */}
+        {/* <A href="/contact-us" style={{ textDecoration: "none" }}>
+          <Button
+            variant="outlined"
+            color="error"
+            sx={{
+              borderRadius: "6px",
+              width: "90%",
+              textTransform: "none",
+
+              alignSelf: "stretch",
+              margin: "2px 1px 1px 1px",
+              "&:hover": {
+                backgroundColor: "#C22522",
+                color: "#FFF",
+              },
+            }}
+          >
+            Login&nbsp;In
+          </Button>
+        </A> */}
+        {/* <Divider /> */}
       </List>
     </Box>
   );
@@ -141,15 +163,14 @@ const Header = () => {
           style={{
             justifyContent: "space-between",
             backgroundColor: selectedNav === "Home" ? "#000000" : "#FFFFFF",
-            
           }}
         >
           {selectedNav === "Home" ? (
-            <A href="/" style={{ textDecoration: "none",display:"flex" }}>
-              <KHiveLogo  />
+            <A href="/" style={{ textDecoration: "none", display: "flex" }}>
+              <KHiveLogo />
             </A>
           ) : (
-            <A href="/" style={{ textDecoration: "none",display:"flex" }}>
+            <A href="/" style={{ textDecoration: "none", display: "flex" }}>
               <Khivelogo3 />
             </A>
           )}
@@ -167,25 +188,24 @@ const Header = () => {
               >
                 <Button
                   disableRipple={true}
-               
                   sx={{
-                     textTransform: "none" , 
+                    textTransform: "none",
                     color:
                       selectedNav === item.label
                         ? "#C22522"
                         : selectedNav !== "Home"
                         ? "#1E293B"
                         : "#fff",
-                        borderRadius:0,
-                        // textDecoration: selectedNav === item.label ? 'underline' : 'none',
-                        fontWeight: selectedNav === item.label ? 'bold' : 'normal',
-                        paddingBottom: selectedNav === item.label ? '4px' : '0',
-                        borderBottom: selectedNav === item.label ? '2px solid #C22522' : 'none',
-                        '&:hover': {
-                           color: '#C22522',
-                           backgroundColor:"unset"
-                         },
-                        
+                    borderRadius: 0,
+                    // textDecoration: selectedNav === item.label ? 'underline' : 'none',
+                    fontWeight: selectedNav === item.label ? "bold" : "normal",
+                    paddingBottom: selectedNav === item.label ? "4px" : "0",
+                    borderBottom:
+                      selectedNav === item.label ? "2px solid #C22522" : "none",
+                    "&:hover": {
+                      color: "#C22522",
+                      backgroundColor: "unset",
+                    },
                   }}
                 >
                   {" "}
@@ -194,31 +214,49 @@ const Header = () => {
               </A>
             ))}
           </Box>
+          <div style={{ display: "flex" }}>
+            <Box sx={{ display: { xs: "none", md: "block" } }}>
+              {/* <A href="/contact-us"   > */}
+              {/* <Button
+                variant="outlined"
+                onClick={handleButtonClick}
+                sx={{
+                  borderColor: selectedNav !== "Home" ? "#C22522" : "#C22522",
+                  color: selectedNav !== "Home" ? "#C22522" : "#FFF",
+                  textTransform: "none",
+                  borderRadius: "6px",
+                  mr: 2,
+                  textDecoration: "none !important",
+                  "&:hover": {
+                    backgroundColor: "#C22522",
+                    borderColor: "#C22522",
+                    color: selectedNav !== "Home" ? "#FFF" : "#FFF",
+                  },
+                }}
+              >
+                Log&nbsp;in
+              </Button> */}
+              {/* </A> */}
+            </Box>
 
-          <Box sx={{ display: { xs: "none", md: "block" } }}>
-            {/* <A href="/contact-us"   > */}
-            <Button
-              variant="outlined"
-              onClick={handleButtonClick}
-              sx={{
-                borderColor: selectedNav !== "Home" ? "#C22522" : "#C22522",
-                color: selectedNav !== "Home" ? "#C22522" : "#FFF",
-                textTransform: "none",
-                borderRadius: "6px",
-                mr: 2,
-                textDecoration: "none !important",
-                "&:hover": {
-                  backgroundColor: "#C22522",
-                  borderColor: "#C22522",
-                  color: selectedNav !== "Home" ? "#FFF" : "#FFF",
-                },
-              }}
-            >
-              Request&nbsp;A&nbsp;Quote
-            </Button>
-            {/* </A> */}
-          </Box>
-
+            <Box sx={{ display: { xs: "none", md: "block" } }}>
+              {/* <A href="/contact-us"   > */}
+              <Button
+                variant="contained"
+                color="error"
+                onClick={handleButtonClick}
+                sx={{
+                  textTransform: "none",
+                  borderRadius: "6px",
+                  mr: 2,
+                  textDecoration: "none !important",
+                }}
+              >
+                Request &nbsp;A &nbsp;Quote
+              </Button>
+              {/* </A> */}
+            </Box>
+          </div>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -226,13 +264,15 @@ const Header = () => {
             onClick={handleDrawerToggle}
             sx={{ display: { md: "none" } }}
           >
-            <MenuIcon sx={{color:selectedNav !== "Home" ? "#1E293B" : "#FFF"}}/>
+            <MenuIcon
+              sx={{ color: selectedNav !== "Home" ? "#1E293B" : "#FFF" }}
+            />
           </IconButton>
         </Toolbar>
       </AppBar>
 
       <Box component="nav">
-        <Drawer   
+        <Drawer
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}

@@ -1,6 +1,6 @@
 //@ts-ignore
 import React, { useState, useEffect } from "react";
-import { MenuItem, Paper, Select, FormControl, InputLabel, SelectChangeEvent } from "@mui/material";
+import { MenuItem, Paper, Select, FormControl, InputLabel, SelectChangeEvent, Divider } from "@mui/material";
 import { Grid, Typography, } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -45,36 +45,21 @@ import Polygon3 from "../../../Assets/icons/Tech Icons/Blockchain/polygon3";
 import Polygon4 from "../../../Assets/icons/Tech Icons/Blockchain/polygon4";
 import Polygon5 from "../../../Assets/icons/Tech Icons/Blockchain/polygon5";
 import Polygon6 from "../../../Assets/icons/Tech Icons/Blockchain/polygon6";
-import Polygon7 from "../../../Assets/icons/Tech Icons/Blockchain/polygon7";
-import Polygon8 from "../../../Assets/icons/Tech Icons/Blockchain/polygon8";
-import Polygon9 from "../../../Assets/icons/Tech Icons/Blockchain/polygon9";
-import Polygon10 from "../../../Assets/icons/Tech Icons/Blockchain/polygon10";
-import Polygon11 from './../../../Assets/icons/Tech Icons/Blockchain/polygon11';
-import Polygon12 from "../../../Assets/icons/Tech Icons/Blockchain/polygon12";
-import Polygon13 from "../../../Assets/icons/Tech Icons/Blockchain/polygon13";
-import Polygon14 from "../../../Assets/icons/Tech Icons/Blockchain/polygon14";
-import Polygon15 from "../../../Assets/icons/Tech Icons/Blockchain/polygon15";
-import Polygon16 from "../../../Assets/icons/Tech Icons/Blockchain/polygon16";
-import Polygon17 from "../../../Assets/icons/Tech Icons/Blockchain/polygon17";
-import Polygon18 from "../../../Assets/icons/Tech Icons/Blockchain/polygon18";
-import Polygon19 from "../../../Assets/icons/Tech Icons/Blockchain/polygon19";
-import Polygon20 from "../../../Assets/icons/Tech Icons/Blockchain/polygon20";
-import Polygon21 from "../../../Assets/icons/Tech Icons/Blockchain/polygon21";
-import Polygon22 from "../../../Assets/icons/Tech Icons/Blockchain/polygon22";
-import Polygon23 from "../../../Assets/icons/Tech Icons/Blockchain/polygon23";
-import Polygon24 from "../../../Assets/icons/Tech Icons/Blockchain/polygon24";
-import Polygon25 from "../../../Assets/icons/Tech Icons/Blockchain/polygon25";
 
 import Test1 from "../../../Assets/icons/Tech Icons/Testing tools/test1";
 import Test2 from "../../../Assets/icons/Tech Icons/Testing tools/test2";
 import Test3 from "../../../Assets/icons/Tech Icons/Testing tools/test3";
+import Blockchain from './../../../Assets/Blockchain';
 
 
 
 const typo = { font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: '#475569', }
 const div2 = { display: 'flex', alignItems: 'center', width: '100%', minHeight: '80px', justifyContent: 'center', }
 
-type Option = 'Frontend' | 'Backend' | 'Mobile' | 'Database' | 'Devops' | 'Blockchain' | 'TestinTools';
+type Option = 'Frontend' | 'Backend' | 'Mobile' | 'Database' | 'Devops' | 'Graphics & UI/UX Design' | 'Testing Tools';
+
+
+
 
 
 const optionIcons = {
@@ -83,8 +68,8 @@ const optionIcons = {
    Mobile: [<Mobile1 />, <Mobile2 />, <Mobile3 />, <Mobile4 />, <Mobile5 />],
    Database: [<Database1 />, <Database2 />, <Database3 />, <Database4 />, <Database5 />],
    Devops: [<Dev1 />, <Dev2 />, <Dev3 />, <Dev4 />, <Dev5 />],
-   Blockchain: [<Polygon1 />, <Polygon2 />, <Polygon3 />, <Polygon4 />, <Polygon5 />, <Polygon6 />, <Polygon7 />, <Polygon8 />, <Polygon9 />, <Polygon10 />, <Polygon11 />, <Polygon12 />, <Polygon13 />, <Polygon14 />, <Polygon15 />, <Polygon16 />, <Polygon17 />, <Polygon18 />, <Polygon19 />, <Polygon20 />, <Polygon21 />, <Polygon22 />, <Polygon23 />, <Polygon24 />, <Polygon25 />,],
-   TestinTools: [<Test1 />, <Test2 />, <Test3 />],
+   "Graphics & UI/UX Design": [<Polygon1 />, <Polygon2 />, <Polygon3 />, <Polygon4 />, <Polygon5 />, <Polygon6 />,],
+   "Testing Tools": [<Test1 />, <Test2 />, <Test3 />],
 };
 
 
@@ -100,7 +85,7 @@ const renderIcons = (option: Option) => {
 
 
 const TechnologiesSection = () => {
-   const options = ['Frontend', 'Backend', 'Mobile', 'Database', 'Devops', 'Blockchain', 'TestinTools'];
+   const options = ['Frontend', 'Backend', 'Mobile', 'Database', 'Devops', 'Graphics & UI/UX Design', 'Testing Tools'];
 
    const [selectedOption, setSelectedOption] = useState<Option>('Frontend');
    const [isPaperHovered, setIsPaperHovered] = useState(false);
@@ -113,7 +98,7 @@ const TechnologiesSection = () => {
       const interval = setInterval(() => {
          if (!isPaperHovered) {
             // Get all available options
-            const options = ['Frontend', 'Backend', 'Mobile', 'Database', 'Devops', 'Blockchain', 'TestinTools'];
+            const options = ['Frontend', 'Backend', 'Mobile', 'Database', 'Devops', 'Graphics & UI/UX Design', 'Testing Tools'];
             const currentIndex = options.indexOf(selectedOption);
             const nextIndex = (currentIndex + 1) % options.length;
             setSelectedOption(options[nextIndex] as Option);
@@ -179,15 +164,22 @@ const TechnologiesSection = () => {
                      <div style={{ width: "25%", minHeight: '583px', borderTopLeftRadius: '16px', borderBottomLeftRadius: '16px', backgroundColor: '#E2E8F0', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }}>
 
                         {options.map((option, index) => (
-                           <div style={{
-                              ...div2,
-                              backgroundColor: selectedOption === option ? "#C22522" : "",
-                              borderTopLeftRadius: index === 0 ? '16px' : '',
-                              borderBottomLeftRadius: index === options.length - 1 ? '16px' : '',
-                           }}
-                              onClick={() => setSelectedOption(option as Option)} key={option}>
-                              <Typography sx={{ ...typo, color: selectedOption === option ? "white" : "#475569", cursor: 'pointer' }}>{option}</Typography>
-                           </div>
+                           <>
+                              <div style={{
+                                 ...div2,
+                                 backgroundColor: selectedOption === option ? "#C22522" : "",
+                                 borderTopLeftRadius: index === 0 ? '16px' : '',
+                                 borderBottomLeftRadius: index === options.length - 1 ? '16px' : '',
+                              }}
+                                 onClick={() => setSelectedOption(option as Option)} key={option}>
+                                 <Typography sx={{ ...typo, color: selectedOption === option ? "white" : "#475569", cursor: 'pointer' }}>{option}</Typography>
+                              </div>
+                              <Divider
+                                 style={{
+                                    display: index === options.length - 1 ? "none" : "flex",
+                                 }}
+                              />
+                           </>
                         ))}
                      </div>
 

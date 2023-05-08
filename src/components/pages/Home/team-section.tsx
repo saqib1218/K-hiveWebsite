@@ -6,6 +6,12 @@ import ArrowRight from "../../../Assets/arrow-right";
 import EmployeeCard from "./employee-card";
 import axios from "axios";
 import Dummycard from "./dummycard";
+import { Typography } from "@mui/material";
+
+const typo0 = { font: 'Archivo', fontWeight: 'bold', color: '#FFFFFF', lineHeight: '60px', marginBottom: '16px' }
+const typo1 = { font: 'Archivo', fontWeight: 'bold', fontSize: '36px', color: '#1E293B', lineHeight: '36px', marginBottom: '16px' }
+const typo2 = { font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: '#C22522', lineHeight: '16px' }
+
 
 const myArray = [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,];
 export type Root = Array<{
@@ -66,7 +72,19 @@ const TeamSection = () => {
    }, []);
 
 
-   return (
+   return (<>
+      {data &&
+         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px' }}>
+            <Typography style={typo1}>
+               Our Team
+            </Typography>
+            <Typography style={typo2}>
+               Meet Our Talented Team
+            </Typography>
+         </div>
+      }
+
+
       <Grid container>
          {data &&
             <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
@@ -123,6 +141,7 @@ const TeamSection = () => {
          </Grid>
 
       </Grid>
+   </>
    )
 }
 

@@ -107,8 +107,7 @@ const Footer = () => {
                   font: "Archivo",
                 }}
               >
-                Why settle for less when krytohive is here, contact us now and
-                boost your business in no time.
+               Hive of innovation and technology
               </Typography>
               {/* <Button> */}
               <div style={{ marginTop: "16px " }}>
@@ -283,7 +282,7 @@ const Footer = () => {
                     font: "Archivo",
                   }}
                 >
-                  Phase 4, Floor 2nd, Plaza, 148 Block D St, Civic Center Bahria
+                  Phase 4, Floor 2nd, Plaza, 148 Block D, Civic Center Bahria
                   Town, Rawalpindi
                 </Typography>
               </Typography>

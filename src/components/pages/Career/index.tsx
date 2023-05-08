@@ -11,6 +11,7 @@ import Textarea from "@mui/joy/Textarea";
 import DescriptionIcon from "@mui/icons-material/Description";
 import CustomDialog from "../../DialogBox/Dialogbox";
 
+
 const Careers = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -138,6 +139,7 @@ setErrorSubject("");
     // Clear the selected file state
     setFileName("");
     setSelectedFile(null);
+    
   };
 
   return (
@@ -218,7 +220,7 @@ setErrorSubject("");
             <Typography
               style={{ fontWeight: 400, font: "Archivo", fontSize: "16px" }}
             >
-              Kryptohive is a renowned company thaWelcome to K-Hive, where we
+              Welcome to K-Hive, where we
               specialize in creating cutting-edge applications for both Web 2.0
               and Web 3.0 technology. Our team of software developers is
               dedicated to pushing the limits of what's possible in the digital
@@ -489,7 +491,7 @@ setErrorSubject("");
                                 fontSize: "14px",
                                 lineHeight: "100%",
                                 color: "Red",
-                                textDecoration:"none"
+                                textDecoration:"none",cursor:"pointer"
                               }}
                               onClick={handleBrowseClick}
                             >

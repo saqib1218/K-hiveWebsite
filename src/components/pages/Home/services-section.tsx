@@ -20,13 +20,13 @@ const cardsToDisplay = [
   {
     icon: <CsPolygon2 />,
     heading: "UI/UX Designing",
-    desc: "Creating visually appealing and user-friendly interfaces for websites and applications, with a focus on enhancing the user experience (UX).",
+    desc: "Creating visually appealing and user-friendly interfaces for websites and applications with a focus on enhancing the user experience (UX).",
 
   },
   {
     icon: <CsPolygon3 />,
-    heading: "Blockchain Development",
-    desc: "Developing decentralized applications (dApps), integrating blockchain technology into existing systems, and creating smart contracts.",
+    heading: "Graphic Designning.",
+    desc: "Our graphic design service offers professional and creative design solutions for a variety of needs, including branding and marketing materials design.",
 
   },
   {
@@ -56,7 +56,7 @@ const cardsToDisplay = [
   {
     icon: <CsPolygon8 />,
     heading: "E-commerce and Marketplace Solutions",
-    desc: "Developing online stores and marketplaces for businesses to sell their products and services, with a focus on improving the customer experience.",
+    desc: "Developing online stores and marketplaces for businesses to sell their products and services with a focus on improving the customer experience.",
 
   },
   {
@@ -97,7 +97,7 @@ const ServicesSection = () => {
             <Typography
               style={{
                 ...typo1,
-                color: hoveredIndex === index ? 'white' : '#475569',
+                color: hoveredIndex === index ? 'white' : '#1E293B',
                 textAlign: 'center'
               }}
               marginTop={'16px'}

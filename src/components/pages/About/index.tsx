@@ -41,7 +41,7 @@ const cardData = [
       icon: { normal: <About3 />, hover: <AboutWhite3 /> }
    }, {
       title: "Accountability",
-      content: "We believe that the people who exercise their freedom responsibly, do not fear accountability. They’re reliable and take ownership of their work.",
+      content: "We believe that people who exercise their freedom responsibly, do not fear accountability. They’re reliable and take ownership of their work.",
       icon: { normal: <About4 />, hover: <AboutWhite4 /> }
    },
 ];
@@ -76,7 +76,7 @@ const cardsToDisplay = [
       iconMobile: <AbPolygon4 />,
       title: "Step 4",
       heading: "Contract Negotiation and Signing",
-      desc: "Once project requirements have been identified and estimated, draft and negotiate a detailed contract outlining project scope, timelines, deliverables, costs, and other critical details. Sign the contract to formalize the agreement between the parties.",
+      desc: "Once project requirements have been identified and estimated, draft and negotiate a detailed contract outlining the project scope, timelines, deliverables, costs, and other critical details. Sign the contract to formalize the agreement between the parties.",
       color: "#38BDF8",
    },
    {
@@ -176,6 +176,7 @@ const About = () => {
             minHeight: '1000px',
             paddingTop: "60px",
             paddingBottom: '60px',
+            marginBottom: "30px",
             padding: isSmall ? '20px' : '60px',
 
          }}>
@@ -239,7 +240,7 @@ const About = () => {
                                  {data.icon}
                               </div>
                               <Paper
-                                 style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: "16px", backgroundColor: '#1C1C1C', border: ' 1px solid #475569', borderRadius: '16px' }}>
+                                 style={{ maxWidth: '960px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: "16px", backgroundColor: '#1C1C1C', border: ' 1px solid #475569', borderRadius: '16px' }}>
                                  <div>
                                     <Typography style={{ ...boxtypo1, color: data.color }}>
                                        {data.title}
@@ -263,15 +264,6 @@ const About = () => {
          </div >
 
          <div style={{ padding: '24px', width: '100%', }}>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px' }}>
-               <Typography style={typo1}>
-                  Our Team
-               </Typography>
-               <Typography style={typo2}>
-                  Meet Our Talented Team
-               </Typography>
-            </div>
-
             <TeamSection />
          </div>
 
