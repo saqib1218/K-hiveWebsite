@@ -107,7 +107,7 @@ const Footer = () => {
                   font: "Archivo",
                 }}
               >
-                Hive of innovation and technology
+                The Hive you believe In
               </Typography>
               {/* <Button> */}
               <div style={{ marginTop: "16px " }}>

@@ -219,28 +219,14 @@ const Careers = () => {
               Transforming your vision into a viable digital solution.
             </Typography>
             <Typography
-              style={{ fontWeight: 400, font: "Archivo", fontSize: "16px" }}
+              style={{
+                fontWeight: 400,
+                font: "Archivo",
+                fontSize: "16px",
+                color: '#475569'
+              }}
             >
-              Welcome to K-Hive, where we
-              specialize in creating cutting-edge applications for both Web 2.0
-              and Web 3.0 technology. Our team of software developers is
-              dedicated to pushing the limits of what's possible in the digital
-              realm and delivering world-class software solutions to our
-              clients.As a software developer in our company, you will have the
-              opportunity to work on a wide range of projects, from developing
-              dynamic e-commerce websites and social media platforms to creating
-              decentralized applications (dApps) on the blockchain. You will
-              work alongside other developers and designers to build
-              user-centric, scalable, and secure software solutions that meet
-              our clients' needs and exceed their expectations.t specializes in
-              providing advanced information technology solutions to clients
-              worldwide. Our team of experts is dedicated to developing
-              innovative and creative products and services that cater to the
-              unique needs of our clients. Our wide range of services includes
-              web design and development, tailor-made applications, ERPs, CRMs,
-              e-commerce solutions, business-to-business applications,
-              business-to-client applications, managed hosting, and internet
-              portal management.
+              Welcome to K-Hive, where we specialize in creating cutting-edge applications for Web 2.0 technology. Our team of software developers is dedicated to pushing the limits of what's possible in the digital realm and delivering world-class software solutions to our clients.
             </Typography>
             <Typography
               style={{
@@ -248,15 +234,21 @@ const Careers = () => {
                 font: "Archivo",
                 fontSize: "16px",
                 marginTop: "16px",
+                color: '#475569'
               }}
             >
-              To thrive in this role, you must have a deep understanding of
-              programming languages such as HTML, CSS, JavaScript, and back-end
-              languages like PHP, Ruby on Rails, or Python. You should also be
-              familiar with web development frameworks such as React, Vue.js, or
-              Angular. Additionally, experience with blockchain development and
-              smart contract languages like Solidity or Rust would be a plus.
+              As a software developer in our company, you will have the opportunity to work on a wide range of projects, from developing dynamic e-commerce websites and social media platforms to creating business-to-business and business-to-client applications. You will work alongside other developers and designers to build user-centric, scalable, and secure software solutions that meet our clients' needs and exceed their expectations.
             </Typography>
+            <Typography
+              style={{
+                fontWeight: 400,
+                font: "Archivo",
+                fontSize: "16px",
+                marginTop: "16px",
+                color: '#475569'
+              }}
+            >
+              To thrive in this role, you must have a deep understanding of programming languages such as HTML, CSS, JavaScript, and back-end languages like PHP, Ruby on Rails, or Python. You should also be familiar with web development frameworks such as React, Vue.js, or Angular.            </Typography>
           </Grid>
         </div>
         <div

@@ -9,10 +9,22 @@ function Editor() {
    //    const data = editor.getData();
    //    setContent(data);
    // };
+   const editorConfig = {
+      toolbar: {
+         items: ['bold', 'italic', 'underline', '|', 'heading', '|', 'alignment', '|', 'bulletedList', 'numberedList', '|', 'link', 'insertImage', '|', 'undo', 'redo'],
+         shouldNotGroupWhenFull: true
+      },
+      language: 'en',
+      image: {
+         toolbar: ['imageStyle:full', 'imageStyle:side', '|', 'imageTextAlternative']
+      }
+   };
 
+
+   // ['bold', 'italic', 'underline', 'heading', '|', 'alignment', '|', 'bulletedList', 'numberedList', '|', 'link', 'image', '|', 'undo', 'redo']
    return (
       <CKEditor
-
+         config={editorConfig}
          editor={ClassicEditor}
          data="Type something..."
          onReady={editor => {
