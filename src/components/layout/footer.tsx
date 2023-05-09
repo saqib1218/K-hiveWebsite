@@ -107,7 +107,7 @@ const Footer = () => {
                   font: "Archivo",
                 }}
               >
-               Hive of innovation and technology
+                Hive of innovation and technology
               </Typography>
               {/* <Button> */}
               <div style={{ marginTop: "16px " }}>
@@ -200,7 +200,7 @@ const Footer = () => {
                 </A>
                 <A
                   href={"/about"}
-                  
+
                   style={{ textDecoration: "none", font: "Archivo" }}
                 >
                   <Typography
@@ -209,7 +209,7 @@ const Footer = () => {
                       color: "#FFFF",
                       fontSize: "16px",
                       marginTop: "10px",
-                      
+
                     }}
                   >
                     About us{" "}
@@ -219,15 +219,15 @@ const Footer = () => {
                   href={"/services"}
                   style={{ textDecoration: "none", font: "Archivo" }}
                 >
-              
+
                   <Typography
-                
+
                     sx={{
                       fontWeight: "400",
                       color: "#FFFF",
                       fontSize: "16px",
                       marginTop: "10px",
-                      
+
                     }}
                   >
                     Services{" "}

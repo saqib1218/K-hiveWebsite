@@ -16,7 +16,7 @@ const bgImage = require('../../../Assets/images/bg.jpg');
 
 const WebTexts = ["Web 3.0 Development", "Web 2.0 Development"];
 const BlockchainTexts = [
-   "IPFS | IoT | DAOs | Solidity | Holo | DApps",
+   // "IPFS | IoT | DAOs | Solidity | Holo | DApps",
    "Web API | RSS | SOAP |  JSON | WSDL |  AJAX"
 ];
 
@@ -63,18 +63,19 @@ const Home = () => {
 
                <div style={{ position: 'absolute', width: '100%', maxHeight: '100%', top: isScreenSmall ? "16px" : '350px', left: "0px", display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                   <Typography style={{ ...typo0, fontSize: isScreenSmall ? "24px" : '60px', }} sx={{ textAlign: 'center' }}>
-                     <Typed
+                     Web 2.0 Development
+                     {/* <Typed
                         strings={WebTexts}
                         typeSpeed={60}
                         backSpeed={60}
                         loop
-                     />
+                     /> */}
                   </Typography>
                   <Typography style={{ ...typo4, fontSize: isScreenSmall ? "12px" : '16px', }}>
                      <Typed
                         autoInsertCss={true}
                         strings={BlockchainTexts}
-                        typeSpeed={35}
+                        typeSpeed={60}
                         backSpeed={20}
                         loop
                      />

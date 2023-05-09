@@ -32,11 +32,11 @@ const Careers = () => {
     // handle form submission here
     // Make axios post request to the server
     // Reset error messages
-setErrorMessage("")
+    setErrorMessage("")
     setErrorEmail("");
     setErrorPhone("");
     setErrorName("")
-setErrorSubject("");
+    setErrorSubject("");
     // Validation
     let isValid = true;
     if (!subject.trim()) {
@@ -71,7 +71,7 @@ setErrorSubject("");
     }
 
 
-    console.log({selectedFile});
+    console.log({ selectedFile });
     const formData = new FormData();
     formData.append("name", name);
     formData.append("email", email);
@@ -79,27 +79,28 @@ setErrorSubject("");
     formData.append("subject", subject);
     formData.append("message", message);
     selectedFile && formData.append("resume", selectedFile);
-  if(isValid){ try {
-      const response = await axios.post("/job-form", formData,  {
-        headers: {
-          "content-type": "multipart/form-data",
-        }
-      });
+    if (isValid) {
+      try {
+        const response = await axios.post("/job-form", formData, {
+          headers: {
+            "content-type": "multipart/form-data",
+          }
+        });
 
-      // Handle response as needed
-      console.log(response.data);
+        // Handle response as needed
+        console.log(response.data);
 
-      // Reset form fields
-      setName("");
-      setEmail("");
-      setPhone("");
-      setSubject("");
-      setMessage("");
-      setShowDialog(true);
-    } catch (error) {
-      console.error(error);
+        // Reset form fields
+        setName("");
+        setEmail("");
+        setPhone("");
+        setSubject("");
+        setMessage("");
+        setShowDialog(true);
+      } catch (error) {
+        console.error(error);
+      }
     }
-  }
   };
 
   const fonts = useMediaQuery("(max-width:1470px)");
@@ -116,14 +117,14 @@ setErrorSubject("");
   const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Handle file input change event
     const file = e.target.files && e.target.files[0];
-    console.log({file})
+    console.log({ file })
     // Check if selected file is a PNG file
     if (file && file.type === "application/pdf") {
       // Process the file
       console.log("Selected file:", file);
       setFileName(file.name);
       setSelectedFile(file);
-      console.log({selectedFile})
+      console.log({ selectedFile })
     } else {
       // Show error message or take appropriate action
       console.error("Please select a PDF file.");
@@ -139,7 +140,7 @@ setErrorSubject("");
     // Clear the selected file state
     setFileName("");
     setSelectedFile(null);
-    
+
   };
 
   return (
@@ -152,14 +153,14 @@ setErrorSubject("");
           justifyContent: "center",
         }}
       >
-       
 
-  <img
-  srcSet={`${myImageSmall} 400w`}
-  sizes="(max-width: 600px) 400px, 800px"
-  alt="My Image"
-  style={{ width:"100%" }}
-/>
+
+        <img
+          srcSet={`${myImageSmall} 400w`}
+          sizes="(max-width: 600px) 400px, 800px"
+          alt="My Image"
+          style={{ width: "100%" }}
+        />
 
         <div
           style={{
@@ -297,51 +298,51 @@ setErrorSubject("");
                 </Typography>
                 <div>
                   <div style={{ display: textdecor ? "initial" : "flex" }}>
-                  <TextField
-                    error={errorName !== ""}
+                    <TextField
+                      error={errorName !== ""}
 
-                    style={{
-                      marginBottom: 24,
-                      backgroundColor: "#FFFF",
-                      marginRight: "24px",
-                      width: "100%",
-                      height: "58px",
-                    }}
-                    label="Your name"
-                    variant="outlined"
-                    helperText={errorName ? errorName : null}
-                    FormHelperTextProps={{ style: { marginBottom: 36 } }}
-                    value={name}
-                    onChange={(e) => {
-                      setErrorName("");
-                      setName(e.target.value);
-                    }}
-                  />
-                   
-                       <TextField
-                    error={errorEmail !== ""}
-                    style={{
-                      marginBottom: 24,
-                      backgroundColor: "#FFFF",
-                      width: "100%",
-                      height: "58px",
-                    }}
-                    label="Email"
-                    variant="outlined"
-                    helperText={errorEmail ? errorEmail : null}
-                    FormHelperTextProps={{ style: { marginBottom: 36 } }}
-                    value={email}
-                    onChange={(e) => {
-                      setErrorEmail("");
-                      setEmail(e.target.value);
-                    }}
-                  />
+                      style={{
+                        marginBottom: 24,
+                        backgroundColor: "#FFFF",
+                        marginRight: "24px",
+                        width: "100%",
+                        height: "58px",
+                      }}
+                      label="Your name"
+                      variant="outlined"
+                      helperText={errorName ? errorName : null}
+                      FormHelperTextProps={{ style: { marginBottom: 36 } }}
+                      value={name}
+                      onChange={(e) => {
+                        setErrorName("");
+                        setName(e.target.value);
+                      }}
+                    />
+
+                    <TextField
+                      error={errorEmail !== ""}
+                      style={{
+                        marginBottom: 24,
+                        backgroundColor: "#FFFF",
+                        width: "100%",
+                        height: "58px",
+                      }}
+                      label="Email"
+                      variant="outlined"
+                      helperText={errorEmail ? errorEmail : null}
+                      FormHelperTextProps={{ style: { marginBottom: 36 } }}
+                      value={email}
+                      onChange={(e) => {
+                        setErrorEmail("");
+                        setEmail(e.target.value);
+                      }}
+                    />
                   </div>
                   <div style={{ display: textdecor ? "initial" : "flex" }}>
                     <TextField
                       error={errorPhone !== ""}
                       style={{
-                        
+
                         marginBottom: 24,
                         backgroundColor: "#FFFF",
                         marginRight: "24px",
@@ -350,51 +351,53 @@ setErrorSubject("");
                       label="Phone Number"
                       variant="outlined"
                       helperText={errorPhone ? errorPhone : null}
-                      FormHelperTextProps={{ style: { marginBottom:-20 } }}
+                      FormHelperTextProps={{ style: { marginBottom: -20 } }}
                       value={phone}
                       onChange={(e) => {
                         setErrorPhone("");
                         setPhone(e.target.value);
                       }}
                     />
-                     <TextField
-                    error={errorSubject !== ""}
+                    <TextField
+                      error={errorSubject !== ""}
 
-                    style={{
-                      marginBottom: 24,
-                      backgroundColor: "#FFFF",
-                      width: "100% ",
-                      height: "58px",
-                    }}
-                    label="Subject"
-                    variant="outlined"
-                    helperText={errorSubject ? errorSubject : null}
-                    FormHelperTextProps={{ style: { marginBottom: 36 } }}
-                    value={subject}
-                    onChange={(e) => {
-                      setErrorSubject("");
-                      setSubject(e.target.value);
-                    }}
-                  />
+                      style={{
+                        marginBottom: 24,
+                        backgroundColor: "#FFFF",
+                        width: "100% ",
+                        height: "58px",
+                      }}
+                      label="Subject"
+                      variant="outlined"
+                      helperText={errorSubject ? errorSubject : null}
+                      FormHelperTextProps={{ style: { marginBottom: 36 } }}
+                      value={subject}
+                      onChange={(e) => {
+                        setErrorSubject("");
+                        setSubject(e.target.value);
+                      }}
+                    />
                   </div>
                   <Textarea
-                
-                 error={errorMessage !== ""}
-                  minRows={4}
-                  placeholder="Lets us now what you are looking for"
-                  variant="outlined"
-                  value={message}
-                
-                  onChange={(e) => {
-                    setErrorMessage("");
-                    setMessage(e.target.value);
-                  }}
-                 
-                  sx={{ borderRadius: 5, marginBottom: 2,   borderColor: errorMessage ? "#d32f2f" : "",
-                  borderWidth: errorMessage ? "2px" : "", }}
-                
-                />
-{errorMessage && <div style={{ color: "#d32f2f",marginBottom:"10px",marginTop:"-10px",fontSize:"0.75rem",marginLeft:10}}>{errorMessage}</div>}
+
+                    error={errorMessage !== ""}
+                    minRows={4}
+                    placeholder="Lets us now what you are looking for"
+                    variant="outlined"
+                    value={message}
+
+                    onChange={(e) => {
+                      setErrorMessage("");
+                      setMessage(e.target.value);
+                    }}
+
+                    sx={{
+                      borderRadius: 5, marginBottom: 2, borderColor: errorMessage ? "#d32f2f" : "",
+                      borderWidth: errorMessage ? "2px" : "",
+                    }}
+
+                  />
+                  {errorMessage && <div style={{ color: "#d32f2f", marginBottom: "10px", marginTop: "-10px", fontSize: "0.75rem", marginLeft: 10 }}>{errorMessage}</div>}
 
                   {showPaper ? (
                     <Paper
@@ -491,7 +494,7 @@ setErrorSubject("");
                                 fontSize: "14px",
                                 lineHeight: "100%",
                                 color: "Red",
-                                textDecoration:"none",cursor:"pointer"
+                                textDecoration: "none", cursor: "pointer"
                               }}
                               onClick={handleBrowseClick}
                             >
@@ -580,16 +583,23 @@ setErrorSubject("");
                       />
                     </>
                   )}
+                  <input
+                    type="file"
+                    id="fileInput"
+                    accept=".pdf"
+                    style={{ display: "none" }}
+                    onChange={handleFileInputChange}
+                  />
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                {" "}
+                  {" "}
                   <CustomDialog
                     title="Thank You for Applying"
                     content=" We appreciate your interest in joining our team. Our HR department will review your application and contact you if there is a good fit. Please keep an eye on your email and don't hesitate to reach out if you have any questions. We wish you all the best in your job search.s "
                     setOpen={setShowDialog}
                     open={showDialog}
                   />
-              </div>
+                </div>
                 <Button
                   type="submit"
                   variant="contained"
