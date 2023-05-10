@@ -154,7 +154,6 @@ const Careers = () => {
         }}
       >
 
-
         <img
           srcSet={`${myImageSmall} 400w`}
           sizes="(max-width: 600px) 400px, 800px"
@@ -180,352 +179,241 @@ const Careers = () => {
           </Typography>
         </div>
       </div>
-      <Grid container>
-        <div
-          style={{
-            marginTop: fonts ? "56px" : "110px",
-            display: "flex",
-            justifyContent: "center",
-            textAlign: "center",
-          }}
-        >
-          <Grid
-            item
-            xl={7}
-            xs={11}
-            md={11}
-            sm={11}
-            lg={8}
+
+      <div style={{ maxWidth: '1920px', margin: 'auto', }}>
+
+        <Grid container>
+          <div
             style={{
+              marginTop: fonts ? "56px" : "110px",
               display: "flex",
-              flexDirection: "column",
-              alignItems: "center ",
+              justifyContent: "center",
+              textAlign: "center",
             }}
           >
-            <Typography
-              style={{ fontWeight: 600, font: "Archivo", fontSize: "36px" }}
-            >
-              We Are Hiring
-            </Typography>
-            <Typography
+            <Grid
+              item
+              xl={7}
+              xs={11}
+              md={11}
+              sm={11}
+              lg={8}
               style={{
-                fontWeight: 400,
-                font: "Archivo",
-                fontSize: "16px",
-                color: "#C22522",
-                marginBottom: "32px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center ",
               }}
             >
-              Transforming your vision into a viable digital solution.
-            </Typography>
-            <Typography
-              style={{
-                fontWeight: 400,
-                font: "Archivo",
-                fontSize: "16px",
-                color: '#475569'
-              }}
-            >
-              Welcome to K-Hive, where we specialize in creating cutting-edge applications for Web 2.0 technology. Our team of software developers is dedicated to pushing the limits of what's possible in the digital realm and delivering world-class software solutions to our clients.
-            </Typography>
-            <Typography
-              style={{
-                fontWeight: 400,
-                font: "Archivo",
-                fontSize: "16px",
-                marginTop: "16px",
-                color: '#475569'
-              }}
-            >
-              As a software developer in our company, you will have the opportunity to work on a wide range of projects, from developing dynamic e-commerce websites and social media platforms to creating business-to-business and business-to-client applications. You will work alongside other developers and designers to build user-centric, scalable, and secure software solutions that meet our clients' needs and exceed their expectations.
-            </Typography>
-            <Typography
-              style={{
-                fontWeight: 400,
-                font: "Archivo",
-                fontSize: "16px",
-                marginTop: "16px",
-                color: '#475569'
-              }}
-            >
-              To thrive in this role, you must have a deep understanding of programming languages such as HTML, CSS, JavaScript, and back-end languages like PHP, Ruby on Rails, or Python. You should also be familiar with web development frameworks such as React, Vue.js, or Angular.            </Typography>
-          </Grid>
-        </div>
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            marginTop: margint ? "30px" : "56px",
-            marginBottom: marginb ? "50px" : "110px",
-          }}
-        >
-          <Grid item xl={7} lg={8} md={11} sm={11} xs={11}>
-            <Paper
-              style={{
-                borderRadius: "10px",
-                backgroundColor: "#F8FAFC",
-                boxShadow: "none",
-                border: "2px solid #E2E8F0",
-              }}
-            >
-              <form
-                onSubmit={handleSubmit}
+              <Typography
+                style={{ fontWeight: 600, font: "Archivo", fontSize: "36px" }}
+              >
+                We Are Hiring
+              </Typography>
+              <Typography
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  padding: 24,
+                  fontWeight: 400,
+                  font: "Archivo",
+                  fontSize: "16px",
+                  color: "#C22522",
+                  marginBottom: "32px",
                 }}
               >
-                <Typography
+                Transforming your vision into a viable digital solution.
+              </Typography>
+              <Typography
+                style={{
+                  fontWeight: 400,
+                  font: "Archivo",
+                  fontSize: "16px",
+                  color: '#475569'
+                }}
+              >
+                Welcome to K-Hive, where we specialize in creating cutting-edge applications for Web 2.0 technology. Our team of software developers is dedicated to pushing the limits of what's possible in the digital realm and delivering world-class software solutions to our clients.
+              </Typography>
+              <Typography
+                style={{
+                  fontWeight: 400,
+                  font: "Archivo",
+                  fontSize: "16px",
+                  marginTop: "16px",
+                  color: '#475569'
+                }}
+              >
+                As a software developer in our company, you will have the opportunity to work on a wide range of projects, from developing dynamic e-commerce websites and social media platforms to creating business-to-business and business-to-client applications. You will work alongside other developers and designers to build user-centric, scalable, and secure software solutions that meet our clients' needs and exceed their expectations.
+              </Typography>
+              <Typography
+                style={{
+                  fontWeight: 400,
+                  font: "Archivo",
+                  fontSize: "16px",
+                  marginTop: "16px",
+                  color: '#475569'
+                }}
+              >
+                To thrive in this role, you must have a deep understanding of programming languages such as HTML, CSS, JavaScript, and back-end languages like PHP, Ruby on Rails, or Python. You should also be familiar with web development frameworks such as React, Vue.js, or Angular.            </Typography>
+            </Grid>
+          </div>
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              marginTop: margint ? "30px" : "56px",
+              marginBottom: marginb ? "50px" : "110px",
+            }}
+          >
+            <Grid item xl={7} lg={8} md={11} sm={11} xs={11}>
+              <Paper
+                style={{
+                  borderRadius: "10px",
+                  backgroundColor: "#F8FAFC",
+                  boxShadow: "none",
+                  border: "2px solid #E2E8F0",
+                }}
+              >
+                <form
+                  onSubmit={handleSubmit}
                   style={{
-                    font: "Archivo",
-                    fontWeight: 600,
-                    fontSize: 24,
-                    textAlign: "center",
-                    marginBottom: "24px",
+                    display: "flex",
+                    flexDirection: "column",
+                    padding: 24,
                   }}
                 >
-                  Job Form
-                </Typography>
-                <div>
-                  <div style={{ display: textdecor ? "initial" : "flex" }}>
-                    <TextField
-                      error={errorName !== ""}
-
-                      style={{
-                        marginBottom: 24,
-                        backgroundColor: "#FFFF",
-                        marginRight: "24px",
-                        width: "100%",
-                        height: "58px",
-                      }}
-                      label="Your name"
-                      variant="outlined"
-                      helperText={errorName ? errorName : null}
-                      FormHelperTextProps={{ style: { marginBottom: 36 } }}
-                      value={name}
-                      onChange={(e) => {
-                        setErrorName("");
-                        setName(e.target.value);
-                      }}
-                    />
-
-                    <TextField
-                      error={errorEmail !== ""}
-                      style={{
-                        marginBottom: 24,
-                        backgroundColor: "#FFFF",
-                        width: "100%",
-                        height: "58px",
-                      }}
-                      label="Email"
-                      variant="outlined"
-                      helperText={errorEmail ? errorEmail : null}
-                      FormHelperTextProps={{ style: { marginBottom: 36 } }}
-                      value={email}
-                      onChange={(e) => {
-                        setErrorEmail("");
-                        setEmail(e.target.value);
-                      }}
-                    />
-                  </div>
-                  <div style={{ display: textdecor ? "initial" : "flex" }}>
-                    <TextField
-                      error={errorPhone !== ""}
-                      style={{
-
-                        marginBottom: 24,
-                        backgroundColor: "#FFFF",
-                        marginRight: "24px",
-                        width: "100%",
-                      }}
-                      label="Phone Number"
-                      variant="outlined"
-                      helperText={errorPhone ? errorPhone : null}
-                      FormHelperTextProps={{ style: { marginBottom: -20 } }}
-                      value={phone}
-                      onChange={(e) => {
-                        setErrorPhone("");
-                        setPhone(e.target.value);
-                      }}
-                    />
-                    <TextField
-                      error={errorSubject !== ""}
-
-                      style={{
-                        marginBottom: 24,
-                        backgroundColor: "#FFFF",
-                        width: "100% ",
-                        height: "58px",
-                      }}
-                      label="Subject"
-                      variant="outlined"
-                      helperText={errorSubject ? errorSubject : null}
-                      FormHelperTextProps={{ style: { marginBottom: 36 } }}
-                      value={subject}
-                      onChange={(e) => {
-                        setErrorSubject("");
-                        setSubject(e.target.value);
-                      }}
-                    />
-                  </div>
-                  <Textarea
-
-                    error={errorMessage !== ""}
-                    minRows={4}
-                    placeholder="Lets us now what you are looking for"
-                    variant="outlined"
-                    value={message}
-
-                    onChange={(e) => {
-                      setErrorMessage("");
-                      setMessage(e.target.value);
+                  <Typography
+                    style={{
+                      font: "Archivo",
+                      fontWeight: 600,
+                      fontSize: 24,
+                      textAlign: "center",
+                      marginBottom: "24px",
                     }}
+                  >
+                    Job Form
+                  </Typography>
+                  <div>
+                    <div style={{ display: textdecor ? "initial" : "flex" }}>
+                      <TextField
+                        error={errorName !== ""}
 
-                    sx={{
-                      borderRadius: 5, marginBottom: 2, borderColor: errorMessage ? "#d32f2f" : "",
-                      borderWidth: errorMessage ? "2px" : "",
-                    }}
+                        style={{
+                          marginBottom: 24,
+                          backgroundColor: "#FFFF",
+                          marginRight: "24px",
+                          width: "100%",
+                          height: "58px",
+                        }}
+                        label="Your name"
+                        variant="outlined"
+                        helperText={errorName ? errorName : null}
+                        FormHelperTextProps={{ style: { marginBottom: 36 } }}
+                        value={name}
+                        onChange={(e) => {
+                          setErrorName("");
+                          setName(e.target.value);
+                        }}
+                      />
 
-                  />
-                  {errorMessage && <div style={{ color: "#d32f2f", marginBottom: "10px", marginTop: "-10px", fontSize: "0.75rem", marginLeft: 10 }}>{errorMessage}</div>}
+                      <TextField
+                        error={errorEmail !== ""}
+                        style={{
+                          marginBottom: 24,
+                          backgroundColor: "#FFFF",
+                          width: "100%",
+                          height: "58px",
+                        }}
+                        label="Email"
+                        variant="outlined"
+                        helperText={errorEmail ? errorEmail : null}
+                        FormHelperTextProps={{ style: { marginBottom: 36 } }}
+                        value={email}
+                        onChange={(e) => {
+                          setErrorEmail("");
+                          setEmail(e.target.value);
+                        }}
+                      />
+                    </div>
+                    <div style={{ display: textdecor ? "initial" : "flex" }}>
+                      <TextField
+                        error={errorPhone !== ""}
+                        style={{
 
-                  {showPaper ? (
-                    <Paper
-                      style={{
-                        // paddingBottom:24,
-                        backgroundColor: "#FFFF",
-                        width: "100%",
-                        // height: 157,
-                        marginBottom: 24,
-                        boxShadow: "none",
-                        border: "2px dashed #E2E8F0",
+                          marginBottom: 24,
+                          backgroundColor: "#FFFF",
+                          marginRight: "24px",
+                          width: "100%",
+                        }}
+                        label="Phone Number"
+                        variant="outlined"
+                        helperText={errorPhone ? errorPhone : null}
+                        FormHelperTextProps={{ style: { marginBottom: -20 } }}
+                        value={phone}
+                        onChange={(e) => {
+                          setErrorPhone("");
+                          setPhone(e.target.value);
+                        }}
+                      />
+                      <TextField
+                        error={errorSubject !== ""}
+
+                        style={{
+                          marginBottom: 24,
+                          backgroundColor: "#FFFF",
+                          width: "100% ",
+                          height: "58px",
+                        }}
+                        label="Subject"
+                        variant="outlined"
+                        helperText={errorSubject ? errorSubject : null}
+                        FormHelperTextProps={{ style: { marginBottom: 36 } }}
+                        value={subject}
+                        onChange={(e) => {
+                          setErrorSubject("");
+                          setSubject(e.target.value);
+                        }}
+                      />
+                    </div>
+                    <Textarea
+
+                      error={errorMessage !== ""}
+                      minRows={4}
+                      placeholder="Lets us now what you are looking for"
+                      variant="outlined"
+                      value={message}
+
+                      onChange={(e) => {
+                        setErrorMessage("");
+                        setMessage(e.target.value);
                       }}
-                    >
-                      {fileName ? (
-                        // Render file name and delete icon if available
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "row",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            padding: "16px",
-                          }}
-                        >
-                          <p
-                            style={{
-                              font: "Archivo",
-                              fontWeight: 600,
-                              fontSize: "16px",
-                              lineHeight: "100%",
-                              color: "#475569",
-                              // alignItems: "center",
-                              marginTop: 8,
-                            }}
-                          >
-                            {fileName}
-                          </p>
-                          <div style={{ display: "flex" }}>
-                            <BorderColorIcon
-                              onClick={handleBrowseClick}
-                              style={{ marginRight: 20 }}
-                            ></BorderColorIcon>
-                            <DeleteIcon
-                              onClick={handleDeleteClick}
-                              color="error"
-                            ></DeleteIcon>
-                          </div>
-                        </div>
-                      ) : (
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            padding: "24px",
-                          }}
-                        >
-                          <DescriptionIcon
-                            style={{
-                              color: "#C22522",
-                              border: "1px solid #E2E8F0",
-                              fontSize: "60px",
-                              padding: 10,
-                              borderRadius: "30px",
-                            }}
-                          />
-                          <Typography
-                            style={{
-                              font: "Archivo",
-                              fontWeight: 600,
-                              fontSize: "12px",
-                              lineHeight: "100%",
-                              color: "#475569",
-                              alignItems: "center",
-                              marginTop: 8,
-                            }}
-                          >
-                            Upload Resume
-                          </Typography>
-                          <Typography
-                            style={{
-                              font: "Archivo",
-                              fontWeight: 400,
-                              fontSize: "14px",
-                              lineHeight: "100%",
-                              marginTop: "8px",
-                              color: "#475569",
-                            }}
-                          >
-                            Drop .pdf&nbsp;or{" "}
-                            <Link
-                              style={{
-                                fontWeight: 400,
-                                fontSize: "14px",
-                                lineHeight: "100%",
-                                color: "Red",
-                                textDecoration: "none", cursor: "pointer"
-                              }}
-                              onClick={handleBrowseClick}
-                            >
-                              {" "}
-                              Browse
-                            </Link>{" "}
-                          </Typography>
 
-                          <input
-                            type="file"
-                            id="fileInput"
-                            accept=".pdf"
-                            style={{ display: "none" }}
-                            onChange={handleFileInputChange}
-                          />
-                        </div>
-                      )}
-                    </Paper>
-                  ) : (
-                    <>
-                      {fileName ? (
-                        <Paper
-                          style={{
-                            // paddingBottom:24,
-                            backgroundColor: "#FFFF",
-                            width: "100%",
-                            // height: 157,
-                            marginBottom: 24,
-                            boxShadow: "none",
-                            border: "2px dashed #E2E8F0",
-                          }}
-                        >
+                      sx={{
+                        borderRadius: 5, marginBottom: 2, borderColor: errorMessage ? "#d32f2f" : "",
+                        borderWidth: errorMessage ? "2px" : "",
+                      }}
+
+                    />
+                    {errorMessage && <div style={{ color: "#d32f2f", marginBottom: "10px", marginTop: "-10px", fontSize: "0.75rem", marginLeft: 10 }}>{errorMessage}</div>}
+
+                    {showPaper ? (
+                      <Paper
+                        style={{
+                          // paddingBottom:24,
+                          backgroundColor: "#FFFF",
+                          width: "100%",
+                          // height: 157,
+                          marginBottom: 24,
+                          boxShadow: "none",
+                          border: "2px dashed #E2E8F0",
+                        }}
+                      >
+                        {fileName ? (
+                          // Render file name and delete icon if available
                           <div
                             style={{
                               display: "flex",
                               flexDirection: "row",
                               alignItems: "center",
                               justifyContent: "space-between",
-                              padding: "12px",
+                              padding: "16px",
                             }}
                           >
                             <p
@@ -535,6 +423,8 @@ const Careers = () => {
                                 fontSize: "16px",
                                 lineHeight: "100%",
                                 color: "#475569",
+                                // alignItems: "center",
+                                marginTop: 8,
                               }}
                             >
                               {fileName}
@@ -550,61 +440,174 @@ const Careers = () => {
                               ></DeleteIcon>
                             </div>
                           </div>
-                        </Paper>
-                      ) : (
-                        <Button
-                          onClick={handleBrowseClick}
-                          variant="outlined"
-                          color="error"
-                          fullWidth
-                          style={{
-                            marginBottom: "16px",
-                          }}
-                        >
-                          Upload Resume
-                        </Button>
-                      )}
+                        ) : (
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              padding: "24px",
+                            }}
+                          >
+                            <DescriptionIcon
+                              style={{
+                                color: "#C22522",
+                                border: "1px solid #E2E8F0",
+                                fontSize: "60px",
+                                padding: 10,
+                                borderRadius: "30px",
+                              }}
+                            />
+                            <Typography
+                              style={{
+                                font: "Archivo",
+                                fontWeight: 600,
+                                fontSize: "12px",
+                                lineHeight: "100%",
+                                color: "#475569",
+                                alignItems: "center",
+                                marginTop: 8,
+                              }}
+                            >
+                              Upload Resume
+                            </Typography>
+                            <Typography
+                              style={{
+                                font: "Archivo",
+                                fontWeight: 400,
+                                fontSize: "14px",
+                                lineHeight: "100%",
+                                marginTop: "8px",
+                                color: "#475569",
+                              }}
+                            >
+                              Drop .pdf&nbsp;or{" "}
+                              <Link
+                                style={{
+                                  fontWeight: 400,
+                                  fontSize: "14px",
+                                  lineHeight: "100%",
+                                  color: "Red",
+                                  textDecoration: "none", cursor: "pointer"
+                                }}
+                                onClick={handleBrowseClick}
+                              >
+                                {" "}
+                                Browse
+                              </Link>{" "}
+                            </Typography>
 
-                      {/* Render file input element */}
-                      <input
-                        type="file"
-                        id="fileInput"
-                        accept=".pdf"
-                        style={{ display: "none" }}
-                        onChange={handleFileInputChange}
-                      />
-                    </>
-                  )}
-                  <input
-                    type="file"
-                    id="fileInput"
-                    accept=".pdf"
-                    style={{ display: "none" }}
-                    onChange={handleFileInputChange}
-                  />
-                </div>
-                <div style={{ display: "flex", justifyContent: "center" }}>
-                  {" "}
-                  <CustomDialog
-                    title="Thank You for Applying"
-                    content=" We appreciate your interest in joining our team. Our HR department will review your application and contact you if there is a good fit. Please keep an eye on your email and don't hesitate to reach out if you have any questions. We wish you all the best in your job search.s "
-                    setOpen={setShowDialog}
-                    open={showDialog}
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="error"
-                  style={{ borderRadius: 8 }}
-                >
-                  Submit
-                </Button>
-              </form>
-            </Paper>
-          </Grid>
-        </div>
-      </Grid>
+                            <input
+                              type="file"
+                              id="fileInput"
+                              accept=".pdf"
+                              style={{ display: "none" }}
+                              onChange={handleFileInputChange}
+                            />
+                          </div>
+                        )}
+                      </Paper>
+                    ) : (
+                      <>
+                        {fileName ? (
+                          <Paper
+                            style={{
+                              // paddingBottom:24,
+                              backgroundColor: "#FFFF",
+                              width: "100%",
+                              // height: 157,
+                              marginBottom: 24,
+                              boxShadow: "none",
+                              border: "2px dashed #E2E8F0",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "space-between",
+                                padding: "12px",
+                              }}
+                            >
+                              <p
+                                style={{
+                                  font: "Archivo",
+                                  fontWeight: 600,
+                                  fontSize: "16px",
+                                  lineHeight: "100%",
+                                  color: "#475569",
+                                }}
+                              >
+                                {fileName}
+                              </p>
+                              <div style={{ display: "flex" }}>
+                                <BorderColorIcon
+                                  onClick={handleBrowseClick}
+                                  style={{ marginRight: 20 }}
+                                ></BorderColorIcon>
+                                <DeleteIcon
+                                  onClick={handleDeleteClick}
+                                  color="error"
+                                ></DeleteIcon>
+                              </div>
+                            </div>
+                          </Paper>
+                        ) : (
+                          <Button
+                            onClick={handleBrowseClick}
+                            variant="outlined"
+                            color="error"
+                            fullWidth
+                            style={{
+                              marginBottom: "16px",
+                            }}
+                          >
+                            Upload Resume
+                          </Button>
+                        )}
+
+                        {/* Render file input element */}
+                        <input
+                          type="file"
+                          id="fileInput"
+                          accept=".pdf"
+                          style={{ display: "none" }}
+                          onChange={handleFileInputChange}
+                        />
+                      </>
+                    )}
+                    <input
+                      type="file"
+                      id="fileInput"
+                      accept=".pdf"
+                      style={{ display: "none" }}
+                      onChange={handleFileInputChange}
+                    />
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "center" }}>
+                    {" "}
+                    <CustomDialog
+                      title="Thank You for Applying"
+                      content=" We appreciate your interest in joining our team. Our HR department will review your application and contact you if there is a good fit. Please keep an eye on your email and don't hesitate to reach out if you have any questions. We wish you all the best in your job search.s "
+                      setOpen={setShowDialog}
+                      open={showDialog}
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="error"
+                    style={{ borderRadius: 8 }}
+                  >
+                    Submit
+                  </Button>
+                </form>
+              </Paper>
+            </Grid>
+          </div>
+        </Grid>
+      </div>
     </>
   );
 };

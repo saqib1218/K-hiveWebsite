@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import myImageSmall from "./writeBlog.svg"
 import { Button, Grid, Link, Typography, useMediaQuery, TextField, } from '@mui/material'
-import { Paper } from '@mui/material';
 import Editor from './myEditor';
-import InsertPhotoOutlined from '@mui/icons-material/InsertPhotoOutlined';
 import ThumbnailCard from './thumbnailCard';
 
 const EditBlog = () => {
    const fonts = useMediaQuery("(max-width:1470px)");
+   const isTablet = useMediaQuery("(max-width:900px)");
 
 
    return (<>
@@ -25,7 +24,7 @@ const EditBlog = () => {
          </div>
       </div>
 
-      <div style={{ maxWidth: '1920px', margin: 'auto' }}>
+      <div style={{ maxWidth: '1920px', margin: 'auto', marginBottom: '100px', padding: "24px" }}>
 
          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px', textAlign: 'center' }}>
             <Typography style={{ font: 'Archivo', fontWeight: 'bold', fontSize: '36px', color: '#1E293B', lineHeight: '36px', marginBottom: '16px' }}>
@@ -37,35 +36,25 @@ const EditBlog = () => {
 
          </div>
 
-         <Grid container style={{ display: 'flex', marginBottom: '100px' }}
-            spacing={2}
-         >
-            <Grid item xs={12} sm={12} md={7} lg={7} xl={7} style={{ padding: '24px', }} >
-
-               {/* <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px' }}> */}
-               {/* <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{ padding: '0px', }} > */}
-               <TextField id="outlined-basic" placeholder='Blog title' variant="outlined" fullWidth style={{ marginBottom: '24px', borderRadius: '8px' }} />
-               {/* </Grid> */}
-
+         <Grid container style={{ display: 'flex', justifyContent: 'center' }} spacing={2} >
+            <Grid item xs={12} sm={12} md={7} lg={7} xl={7}  >   <TextField id="outlined-basic" placeholder='Blog title' variant="outlined" fullWidth style={{ marginBottom: '24px', borderRadius: '8px' }} />
                <Editor />
-
-               {/* </div> */}
             </Grid>
 
-            <Grid item xs={12} sm={12} md={4} lg={4} xl={4} style={{ padding: '24px', }} >
+            <Grid item xs={12} sm={12} md={4} lg={4} xl={4}  >
                <ThumbnailCard />
             </Grid>
 
-            <Grid item xs={12} sm={12} md={7} lg={7} xl={7}
-               style={{ padding: '24px', }}
-            >
+            <Grid item xs={12} sm={12} md={7} lg={7} xl={7} >
                <Button
-                  variant="contained" style={{ textTransform: 'capitalize', float: 'right' }} color='error'>
+                  variant="contained" style={{ textTransform: 'capitalize', float: 'right', width: isTablet ? "100%" : '150px' }} color='error'>
                   Submit
                </Button>
             </Grid>
 
-            {/* </Grid> */}
+            <Grid item xs={12} sm={12} md={4} lg={4} xl={4}  >
+            </Grid>
+
          </Grid>
 
       </div>
@@ -74,13 +63,3 @@ const EditBlog = () => {
 }
 
 export default EditBlog
-
-
-{/* <input type="file" accept=".jpg, .png" onChange={handleFileUpload} style={{ textAlignLast: 'center' }} />
-                  {thumbnailUrl && (
-                     <img src={thumbnailUrl} alt="Thumbnail preview" style={{ width: '100%', height: '100px', objectFit: 'contain' }} />
-                  )}
-                  <Typography style={{ display: 'flex', flexDirection: 'row', font: 'Archivo', fontWeight: '400px', fontSize: '12px', color: '#475569', lineHeight: '12px', alignItems: 'center', }}>
-                     Max&nbsp;Size:
-                     <Typography style={{ font: 'Archivo', fontWeight: 'bold', fontSize: '12px', color: '#1E293B', lineHeight: '12px', }}>10MB</Typography>
-                  </Typography> */}

@@ -155,7 +155,7 @@ const TechnologiesSection = () => {
 
          {
             isDesktop && (
-               <Paper style={{ width: "100%", minHeight: '583px', borderRadius: '16px', }}
+               <Paper style={{ width: "100%", minHeight: '583px', borderRadius: '16px', borderColor: "#E2E8F0" }}
                   onMouseEnter={() => setIsPaperHovered(true)}
                   onMouseLeave={() => setIsPaperHovered(false)}
                >
