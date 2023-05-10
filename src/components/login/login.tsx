@@ -1,7 +1,7 @@
 import { Avatar, Box, Button, Checkbox, CssBaseline, FormControlLabel, Grid, Link, Paper, TextField, ThemeProvider, Typography, createTheme } from '@mui/material'
 import React from 'react'
-import MyImage from "./Rectangle 1.png"
-import myimage2 from "./Frame8.png"
+import MyImage from "../../Assets/images/Rectangle 1.png"
+import myimage2 from "../../Assets/images/Frame8.png"
 // import { Copyright } from '@mui/icons-material';
 
 
@@ -81,7 +81,7 @@ lineHeight: "150%",textAlign:"center", marginTop:16}}>Welcome back! Please enter
                 color='error'
                 fullWidth
                 variant="contained"
-                sx={{ mt: 2, mb: 2 ,}}
+                sx={{ mt: 2, mb: 2 ,borderRadius:"8px"}}
               >
                 Login
               </Button>
@@ -91,7 +91,7 @@ lineHeight: "150%",textAlign:"center", marginTop:16}}>Welcome back! Please enter
       Don’t have an account?&nbsp; 
     </Typography>
     <Link
-      href="#"
+      href="/signup"
       variant="body2"
       style={{  color: "#C22522", textDecoration: "none",marginTop:"2px",fontWeight:600,fontSize:16,fontFamily :"Roboto",fontStyle:"normal" }}
     >
