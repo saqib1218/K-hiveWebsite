@@ -12,6 +12,7 @@ import { A } from 'hookrouter';
 
 const myVideo = require('../../../Assets/video/homeNew.mp4');
 const bgImage = require('../../../Assets/images/bg.jpg');
+const divImage = require('../../../Assets/images/hivebg.png');
 
 
 const WebTexts = ["Web 3.0 Development", "Web 2.0 Development"];
@@ -80,7 +81,7 @@ const Home = () => {
          </div>
 
          <div style={{
-            backgroundImage: `url(${bgImage})`,
+            // backgroundImage: `url(${bgImage})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
@@ -117,7 +118,19 @@ const Home = () => {
                </Grid>
 
 
-               <div style={{ height: '375px', width: '100%', backgroundColor: ' #1C1C1C', marginTop: "95px", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+               <div
+                  style={{
+                     backgroundImage: `url(${divImage})`,
+                     height: '375px',
+                     width: '100%',
+                     maxWidth: '1920px',
+                     backgroundColor: ' #1C1C1C',
+                     marginTop: "95px",
+                     display: 'flex',
+                     flexDirection: 'column',
+                     alignItems: 'center',
+                     justifyContent: 'center'
+                  }}>
                   <Typography style={typo3} sx={{ textAlign: 'center' }}>
                      Ready For Your Digital Success?
                   </Typography>
@@ -159,8 +172,3 @@ const Home = () => {
 }
 
 export default Home
-
-{/* <Lottie
-               animationData={animationData}
-               style={{ width: '100%', height: '500%', objectFit: 'cover', position: 'relative' }}
-            /> */}

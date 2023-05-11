@@ -111,6 +111,7 @@ const About = () => {
 
    const fonts = useMediaQuery("(max-width:1470px)");
    const isSmall = useMediaQuery("(max-width:1200px)");
+   const isTablet = useMediaQuery("(max-width:1200px)");
    return (
       <>
 
@@ -269,10 +270,10 @@ const About = () => {
             </Grid>
          </div >
 
-         <div style={{ maxWidth: '2485px', margin: 'auto', padding: "24px" }}>
-            <div style={{ padding: '24px', width: '100%', }}>
-               <TeamSection />
-            </div>
+         <div style={{ maxWidth: '2100px', margin: 'auto', padding: isTablet ? "24px" : "200px" }}>
+            {/* <div style={{ padding: '24px', width: '100%', }}> */}
+            <TeamSection />
+            {/* </div> */}
          </div >
       </>
    )

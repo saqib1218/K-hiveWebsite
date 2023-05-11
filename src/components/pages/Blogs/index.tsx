@@ -71,11 +71,8 @@ const Blogs = () => {
                         ))}
 
                      </Grid>
-
-
-
-
                   </Grid>
+
                   <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{ display: 'flex', justifyContent: 'center', marginTop: '80px', marginBottom: '80px', }}>
                      <Pagination
                         componentName='div'
@@ -111,13 +108,6 @@ const Blogs = () => {
 
                      </Paper>
                   </Grid>
-
-
-
-
-
-
-
 
                </Grid>
             </Grid >
