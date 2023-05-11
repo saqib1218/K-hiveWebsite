@@ -111,6 +111,7 @@ const About = () => {
 
    const fonts = useMediaQuery("(max-width:1470px)");
    const isSmall = useMediaQuery("(max-width:1200px)");
+   const isTablet = useMediaQuery("(max-width:1200px)");
    return (
       <>
 
@@ -128,44 +129,50 @@ const About = () => {
             </div>
          </div>
 
-         <Grid container style={{ justifyContent: 'center', marginBottom: '100px' }}>
-            <Grid item xs={11} sm={11} md={9} lg={7} xl={8}>
 
-               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px' }}>
-                  <Typography style={typo1}>
-                     Who We Are?
-                  </Typography>
-                  <Typography style={{ ...typo2, textAlign: 'center' }}>
-                     Transforming your vision into a viable digital solution.
-                  </Typography>
-                  <Typography style={{ ...typo3, textAlign: 'center', marginTop: '10px' }}>
-                     Kryptohive is a renowned company that specializes in providing advanced information technology solutions to clients worldwide. Our team of experts is dedicated to developing innovative and creative products and services that cater to the unique needs of our clients. Our wide range of services includes web design and development, tailor-made applications, ERPs, CRMs, e-commerce solutions, business-to-business applications, business-to-client applications, managed hosting, and internet portal management.
-                  </Typography>
 
-               </div>
-            </Grid>
 
-            <Grid item xs={12} sm={12} md={12} lg={11} xl={8}>
-               <Grid container spacing={4} style={{ display: 'flex', justifyContent: 'center' }}>
+         <div style={{ maxWidth: '2485px', margin: 'auto', padding: "24px" }}>
 
-                  {cardData.map((card, index) => (
-                     <Grid item xs={12} sm={6} md={3} lg={3} xl={3} style={{ display: 'grid', justifyItems: 'center' }}>
-                        <Paper
-                           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '24px', backgroundColor: hoveredItem === index ? '#C22522' : ' #F8FAFC', border: '1px solid #E2E8F0', boxShadow: 'none', borderRadius: '16px' }}
-                           onMouseEnter={() => { setHoveredItem(index) }} onMouseLeave={() => { setHoveredItem(-1) }}
-                        >
-                           {hoveredItem === index ? card.icon.hover : card.icon.normal}
-                           <Typography style={{ ...typo0, color: hoveredItem === index ? 'white' : '#C22522' }} marginTop={'16px'}>{card.title}</Typography>
-                           <Typography style={{ font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: hoveredItem === index ? 'white' : '#475569', lineHeight: '24px', textAlign: 'center' }}>{card.content}</Typography>
-                        </Paper>
-                     </Grid>
-                  ))}
+            <Grid container style={{ justifyContent: 'center', marginBottom: '100px' }}>
+               <Grid item xs={11} sm={11} md={9} lg={7} xl={8}>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '110px', marginBottom: '50px' }}>
+                     <Typography style={typo1}>
+                        Who We Are?
+                     </Typography>
+                     <Typography style={{ ...typo2, textAlign: 'center' }}>
+                        Transforming your vision into a viable digital solution.
+                     </Typography>
+                     <Typography style={{ ...typo3, textAlign: 'center', marginTop: '10px' }}>
+                        Kryptohive is a renowned company that specializes in providing advanced information technology solutions to clients worldwide. Our team of experts is dedicated to developing innovative and creative products and services that cater to the unique needs of our clients. Our wide range of services includes web design and development, tailor-made applications, ERPs, CRMs, e-commerce solutions, business-to-business applications, business-to-client applications, managed hosting, and internet portal management.
+                     </Typography>
+
+                  </div>
+               </Grid>
+
+               <Grid item xs={12} sm={12} md={12} lg={11} xl={10}>
+                  <Grid container spacing={4} style={{ display: 'flex', justifyContent: 'center' }}>
+
+                     {cardData.map((card, index) => (
+                        <Grid item xs={12} sm={6} md={3} lg={3} xl={3} style={{ display: 'grid', justifyItems: 'center' }}>
+                           <Paper
+                              style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '24px', backgroundColor: hoveredItem === index ? '#C22522' : ' #F8FAFC', border: '1px solid #E2E8F0', boxShadow: 'none', borderRadius: '16px' }}
+                              onMouseEnter={() => { setHoveredItem(index) }} onMouseLeave={() => { setHoveredItem(-1) }}
+                           >
+                              {hoveredItem === index ? card.icon.hover : card.icon.normal}
+                              <Typography style={{ ...typo0, color: hoveredItem === index ? 'white' : '#C22522' }} marginTop={'16px'}>{card.title}</Typography>
+                              <Typography style={{ font: 'Archivo', fontWeight: '400px', fontSize: '16px', color: hoveredItem === index ? 'white' : '#475569', lineHeight: '24px', textAlign: 'center' }}>{card.content}</Typography>
+                           </Paper>
+                        </Grid>
+                     ))}
+
+                  </Grid>
 
                </Grid>
 
             </Grid>
-
-         </Grid>
+         </div >
 
          <div style={{
             backgroundImage: `url(${bgImage})`,
@@ -180,7 +187,7 @@ const About = () => {
             padding: isSmall ? '20px' : '60px',
 
          }}>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '100px', marginBottom: '100px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginTop: '40px', marginBottom: '100px' }}>
                <Typography style={{ ...typo1, color: '#ffffff' }}>
                   How we work?
                </Typography>
@@ -263,10 +270,11 @@ const About = () => {
             </Grid>
          </div >
 
-         <div style={{ padding: '24px', width: '100%', }}>
+         <div style={{ maxWidth: '2100px', margin: 'auto', padding: isTablet ? "24px" : "200px" }}>
+            {/* <div style={{ padding: '24px', width: '100%', }}> */}
             <TeamSection />
-         </div>
-
+            {/* </div> */}
+         </div >
       </>
    )
 }

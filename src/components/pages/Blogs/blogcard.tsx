@@ -67,7 +67,7 @@ const BlogCard = () => {
                         <Typography sx={{ font: 'Archivo', fontSize: '16px', fontWeight: 'bold', color: '#1E293B', lineHeight: '16px' }}>Uber Eats</Typography>
                      </div>
 
-                     <Button variant="text" size='large' style={{ color: '#C22522', fontWeight: 'bold', textTransform: 'capitalize', alignItems: 'center', marginRight: '8px' }}
+                     <Button variant="text" size='large' style={{ color: '#C22522', fontWeight: 'bold', textTransform: 'capitalize', alignItems: 'center', marginLeft: '20px' }}
                         endIcon={<ArrowForwardIcon />}>
                         Read&nbsp;More
                      </Button>

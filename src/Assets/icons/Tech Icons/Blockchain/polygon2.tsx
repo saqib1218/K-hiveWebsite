@@ -2,7 +2,7 @@ import React from 'react'
 
 const Polygon2 = () => {
   return (
-    <svg width="79" height="78" viewBox="0 0 79 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="100" height="100" viewBox="0 0 79 78" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M20.5885 72.275L1.37715 39L20.5885 5.72501H59.0111L78.2225 39L59.0111 72.275H20.5885Z" fill="#F8FAFC" stroke="#E2E8F0" />
       <g clip-path="url(#clip0_937_17642)">
         <path d="M51.6707 20H27.1291C23.4127 20 20.3999 23.0128 20.3999 26.7292V50.3208C20.3999 54.0373 23.4127 57.05 27.1291 57.05H51.6707C55.3871 57.05 58.3999 54.0373 58.3999 50.3208V26.7292C58.3999 23.0128 55.3871 20 51.6707 20Z" fill="#330000" />

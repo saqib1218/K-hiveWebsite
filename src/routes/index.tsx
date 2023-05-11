@@ -10,6 +10,7 @@ import Blogs from "../components/pages/Blogs";
 import Login from "../components/login/login";
 import SignUp from "../components/signup/signup";
 import EditBlog from "../components/pages/Blogs/editBlog";
+import MyBlog from "../components/pages/Blogs/myBlog";
 
 function Route() {
 
@@ -31,6 +32,9 @@ function Route() {
       ),
       '/blogs': () => (
          <Blogs />
+      ),
+      '/blogs/myblog': () => (
+         <MyBlog />
       ),
       '/blogs/write': () => (
          <EditBlog />
